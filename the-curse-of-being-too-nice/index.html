@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  
+  <title>The Curse of Being Too Nice - Quiz & Reflection</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              purple: '#8b5cf6',
+              purpleHover: '#7c3aed',
+              dark: '#0f172a',
+              card: '#1e293b',
+              cardHover: '#334155',
+              border: '#334155',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="icon" type="image/png" sizes="48x48" href="favicon.png">
+
+  <style>
+    /* Mandatory Responsive Video Container CSS */
+    .video-container {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        border-radius: 12px;
+    }
+
+    .video-container iframe {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        border: 0;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #475569;
+    }
+    
+    /* Custom input accent */
+    input[type="radio"], input[type="checkbox"] {
+      accent-color: #8b5cf6;
+      width: 1.15rem;
+      height: 1.15rem;
+      cursor: pointer;
+    }
+    
+    /* Animation for modal */
+    @keyframes modalPop {
+      0% { transform: scale(0.9); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .animate-pop {
+      animation: modalPop 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    .correct-choice {
+      background-color: rgba(34, 197, 94, 0.15) !important;
+      border-color: #22c55e !important;
+      color: #4ade80 !important;
+    }
+
+    .wrong-choice {
+      background-color: rgba(239, 68, 68, 0.15) !important;
+      border-color: #ef4444 !important;
+      color: #f87171 !important;
+    }
+
+    /* Badge shape matching reference image */
+    .lazy-owl-badge {
+      background-color: #8b5cf6;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 8px;
+      display: inline-block;
+      box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans min-h-screen flex flex-col justify-between selection:bg-purple-700 selection:text-white">
+
+  <!-- Main Container -->
+  <div class="max-w-4xl mx-auto px-4 py-8 w-full flex-grow">
+    
+    <!-- Header Section -->
+    <header class="bg-slate-900 border border-slate-800 rounded-2xl p-6 md:p-8 mb-6 shadow-2xl relative overflow-hidden">
+      <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-purple-700 via-purple-600 to-violet-500"></div>
+
+      <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+        <!-- Exact Badge Shape from reference image -->
+        <div class="lazy-owl-badge">
+          LAZY OWL
+        </div>
+
+        <a href="https://youtu.be/sDjNYlP4I0U" target="_blank" rel="noopener noreferrer" 
+           class="inline-flex items-center text-xs font-semibold bg-purple-600/10 hover:bg-purple-600/20 text-purple-300 border border-purple-500/30 px-3 py-1.5 rounded-lg transition-colors duration-200">
+          <i class="fa-brands fa-youtube me-2 text-purple-400 text-sm"></i> Watch directly on YouTube
+        </a>
+      </div>
+
+      <h1 class="text-2xl md:text-3xl font-extrabold text-white tracking-tight leading-snug">
+        The Curse of Being Too Nice
+      </h1>
+    </header>
+
+    <!-- Embedded Video Section -->
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-3 md:p-4 mb-6 shadow-xl">
+      <div class="video-container shadow-inner bg-black">
+        <iframe
+            src="https://www.youtube-nocookie.com/embed/sDjNYlP4I0U"
+            title="The Curse of Being Too Nice"
+            frameborder="0"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+        </iframe>
+      </div>
+      <div class="flex items-center justify-between px-2 pt-3 text-xs text-slate-400">
+        <span>Having trouble playing the embedded video?</span>
+        <a href="https://youtu.be/sDjNYlP4I0U" target="_blank" rel="noopener" class="text-purple-400 hover:underline font-medium">
+          Open link in new tab <i class="fa-solid fa-arrow-up-right-from-square text-[10px] ml-0.5"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Tabbed Navigation Under Video -->
+    <nav class="flex border-b-2 border-slate-800 mb-6 gap-2">
+      <button type="button" id="tab-btn-quiz" onclick="switchTab('quiz')" 
+        class="px-5 py-3 font-bold text-sm md:text-base transition-all border-b-2 border-purple-500 text-white flex items-center gap-2">
+        <i class="fa-solid fa-list-check text-purple-400"></i> Listening Comprehension Quiz
+      </button>
+      <button type="button" id="tab-btn-reflection" onclick="switchTab('reflection')" 
+        class="px-5 py-3 font-bold text-sm md:text-base transition-all border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center gap-2">
+        <i class="fa-regular fa-comment-dots"></i> Reflection Task
+      </button>
+    </nav>
+
+    <!-- PAGE 1: Listening Comprehension Quiz -->
+    <div id="page-quiz" class="space-y-6">
+      
+      <div class="bg-slate-900/60 border border-slate-800 rounded-xl p-4 flex items-center justify-between text-sm text-slate-300">
+        <div class="flex items-center space-x-2">
+          <i class="fa-solid fa-circle-info text-purple-400"></i>
+          <span>Watch the video and choose the correct options below.</span>
+        </div>
+        <div id="answered-indicator" class="hidden md:block text-xs font-semibold text-slate-400 bg-slate-800 px-3 py-1 rounded-full border border-slate-700">
+          15 Questions (23 Max Points)
+        </div>
+      </div>
+
+      <!-- Quiz Form -->
+      <form id="quiz-form" onsubmit="event.preventDefault();" class="space-y-6">
+        <div id="questions-container" class="space-y-6">
+          <!-- Questions dynamically injected via JS -->
+        </div>
+
+        <!-- Submit & Control Bar -->
+        <div class="sticky bottom-4 z-10 pt-4">
+          <div class="bg-slate-900/95 backdrop-blur border border-slate-800 p-4 rounded-xl shadow-2xl flex items-center justify-between gap-4">
+            <div class="text-xs text-slate-400 font-medium hidden sm:block">
+              <span id="answered-count">0</span> of 15 questions answered
+            </div>
+            <div class="flex items-center space-x-3 w-full sm:w-auto justify-end">
+              <button type="button" id="reset-btn" onclick="resetQuiz()" 
+                class="px-5 py-2.5 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm transition-all flex items-center gap-2">
+                <i class="fa-solid fa-rotate-left text-xs"></i> Reset
+              </button>
+              <button type="button" id="submit-btn" onclick="checkAnswers()" 
+                class="flex-1 sm:flex-initial px-8 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-sm shadow-lg shadow-purple-900/40 transition-all flex items-center justify-center gap-2">
+                <i class="fa-solid fa-check text-xs"></i> Check Answers
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- PAGE 2: Reflection Task -->
+    <div id="page-reflection" class="hidden">
+      <section class="bg-slate-900 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-xl">
+        <div class="flex items-center space-x-3 mb-4">
+          <div class="w-8 h-8 rounded-lg bg-purple-600/10 border border-purple-500/30 flex items-center justify-center text-purple-400 font-bold text-sm">
+            <i class="fa-solid fa-pen-to-square"></i>
+          </div>
+          <h2 class="text-xl font-bold text-white">Reflection Task</h2>
+        </div>
+
+        <div class="bg-slate-950 border-l-4 border-purple-600 p-4 rounded-r-xl mb-6">
+          <p class="text-slate-300 text-sm md:text-base leading-relaxed">
+            Imagine you need to write a comment under this video on YouTube. Choose a take you agree or disagree with, compose a comment, and send it to your teacher in DMs before the lesson.
+          </p>
+        </div>
+
+        <div class="bg-slate-950 border border-slate-800 rounded-xl p-4 mb-4">
+          <label for="reflection-input" class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">
+            Your Comment Draft:
+          </label>
+          <textarea id="reflection-input" rows="5" 
+            placeholder="e.g., I agree with the video's explanation about how suppressing true feelings to maintain attachment can lead to emotional exhaustion..." 
+            class="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-slate-200 text-sm focus:outline-none focus:border-purple-500 transition-colors resize-y"
+            oninput="updateReflectionCounter()"></textarea>
+          
+          <div class="flex items-center justify-between mt-2 text-xs text-slate-500">
+            <span id="char-count">0 characters</span>
+            <span id="copy-status" class="text-emerald-400 font-medium hidden"><i class="fa-solid fa-check me-1"></i> Copied to clipboard!</span>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-3">
+          <button type="button" onclick="copyReflection()" 
+            class="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 text-xs md:text-sm font-semibold rounded-lg transition-colors flex items-center gap-2">
+            <i class="fa-regular fa-copy"></i> Copy for Teacher DMs
+          </button>
+        </div>
+      </section>
+    </div>
+
+  </div>
+
+  <!-- Score Modal Pop-up -->
+  <div id="score-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 w-full max-w-md rounded-2xl p-6 md:p-8 shadow-2xl relative text-center animate-pop">
+      
+      <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors">
+        <i class="fa-solid fa-xmark text-xl"></i>
+      </button>
+
+      <div class="w-20 h-20 mx-auto rounded-full bg-purple-600/10 border border-purple-500/30 flex items-center justify-center mb-4">
+        <span id="modal-emoji" class="text-4xl">🏆</span>
+      </div>
+
+      <h2 class="text-2xl font-bold text-white mb-1">Quiz Completed!</h2>
+      <p id="modal-comment" class="text-lg font-bold text-purple-400 mb-4">
+        <!-- Scale comment injected here -->
+      </p>
+
+      <div class="bg-slate-800/80 border border-slate-700/60 rounded-xl p-4 mb-6">
+        <div class="text-xs uppercase tracking-wider text-slate-400 font-bold mb-1">Your Total Score</div>
+        <div class="text-4xl font-extrabold text-white">
+          <span id="modal-score-num">0</span> <span class="text-slate-500 text-2xl font-medium">/ 23</span>
+        </div>
+      </div>
+
+      <div class="flex gap-3">
+        <button onclick="closeModal()" class="flex-1 px-4 py-2.5 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 text-sm font-semibold transition-all">
+          Review Answers
+        </button>
+        <button onclick="resetQuiz(); closeModal();" class="flex-1 px-4 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white text-sm font-semibold transition-all shadow-md">
+          Try Again
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-900 bg-slate-950 py-6 text-center text-xs text-slate-500">
+    <p>Based on Lazy Owl video report: "The Curse of Being Too Nice"</p>
+  </footer>
+
+  <script>
+    // 15 Quiz Questions Data (Total Max Score: 23 points)
+    const questionsData = [
+      {
+        id: 1,
+        question: "1. Why did Jake tolerate Peter's constant complaining?",
+        isMulti: false,
+        points: 1,
+        options: [
+          { key: "A", text: "He was afraid Peter would stop being his friend." },
+          { key: "B", text: "He believed that being nice to people was important." },
+          { key: "C", text: "He enjoyed listening to other people's problems." },
+          { key: "D", text: "He thought Peter would eventually return the favour." }
+        ],
+        correct: ["B"]
+      },
+      {
+        id: 2,
+        question: "2. What was the main characteristic of Jake's personality?",
+        isMulti: false,
+        points: 1,
+        options: [
+          { key: "A", text: "He was highly competitive and ambitious." },
+          { key: "B", text: "He was confident and comfortable expressing his opinions." },
+          { key: "C", text: "He was excessively agreeable and rarely expressed negative emotions." },
+          { key: "D", text: "He preferred spending time alone rather than with friends." }
+        ],
+        correct: ["C"]
+      },
+      {
+        id: 3,
+        question: "3. What did two Cleveland Clinic neurologists report at an international congress in Bavaria in the 1990s?",
+        isMulti: false,
+        points: 1,
+        options: [
+          { key: "A", text: "People with ALS were particularly likely to be aggressive." },
+          { key: "B", text: "ALS patients often displayed unusually nice and compliant behaviour." },
+          { key: "C", text: "Most people with ALS had experienced severe childhood trauma." },
+          { key: "D", text: "People with ALS were generally less sociable than healthy individuals." }
+        ],
+        correct: ["B"]
+      },
+      {
+        id: 4,
+        question: "4. Why does the narrator suggest that Jake's friends didn't really know him?",
+        isMulti: false,
+        points: 1,
+        options: [
+          { key: "A", text: "Jake rarely spent time with them outside work." },
+          { key: "B", text: "He deliberately kept his personal life a secret." },
+          { key: "C", text: "He never expressed his true feelings, opinions or needs." },
+          { key: "D", text: "He frequently disagreed with them and avoided conversations." }
+        ],
+        correct: ["C"]
+      },
+      {
+        id: 5,
+        question: "5. What is psycho-neuro-immunology primarily concerned with?",
+        isMulti: false,
+        points: 1,
+        options: [
+          { key: "A", text: "How childhood experiences influence personality development." },
+          { key: "B", text: "How emotions, the nervous system and the immune system are interconnected." },
+          { key: "C", text: "How genetic factors determine people's emotional responses." },
+          { key: "D", text: "How physical exercise can prevent neurological diseases." }
+        ],
+        correct: ["B"]
+      },
+      {
+        id: 6,
+        question: "6. According to the video, how can suppressing anger affect the immune system?",
+        isMulti: false,
+        points: 1,
+        options: [
+          { key: "A", text: "It can reduce the effectiveness of natural killer cells." },
+          { key: "B", text: "It can cause the immune system to produce too many antibodies." },
+          { key: "C", text: "It can make the body more resistant to cancer." },
+          { key: "D", text: "It can prevent the immune system from responding to infections." }
+        ],
+        correct: ["A"]
+      },
+      {
+        id: 7,
+        question: "7. Which of the following health problems does the narrator associate with chronic stress? Choose ALL the correct answers.",
+        isMulti: true,
+        points: 8,
+        options: [
+          { key: "A", text: "Increased risk of cardiovascular disease and heart attacks." },
+          { key: "B", text: "Improved cognitive functioning." },
+          { key: "C", text: "Thinning of the bones." },
+          { key: "D", text: "Increased vulnerability to diabetes." },
+          { key: "E", text: "Reduced blood pressure." },
+          { key: "F", text: "Weakened immune responses." },
+          { key: "G", text: "Increased risk of cancer." },
+          { key: "H", text: "Improved blood circulation." },
+          { key: "I", text: "Increased blood clotting." },
+          { key: "J", text: "Reduced risk of strokes." },
+          { key: "K", text: "Anxiety and depression." },
+          { key: "L", text: "Narrowing of blood vessels." },
+          { key: "M", text: "Improved metabolic health." }
+        ],
+        correct: ["A", "C", "D", "F", "G", "I", "K", "L"]
+      },
+      {
+        id: 8,
+        question: "8. What does the narrator suggest about people who are excessively nice for too long?",
+        isMulti: false,
+        points: 1,
+        options: [
+          { key: "A", text: "They are more likely to develop stronger social connections." },
+          { key: "B", text: "Their behaviour may contribute to health problems and potentially shorten their lives." },
+          { key: "C", text: "They become less sensitive to other people's emotions." },
+          { key: "D", text: "They are generally better at managing stressful situations." }
+        ],
+        correct: ["B"]
+      },
+      {
+        id: 9,
+        question: "9. What are the two core psychological needs that can conflict with each other?",
+        isMulti: false,
+        points: 1,
+        options: [
+          { key: "A", text: "Security and independence." },
+          { key: "B", text: "Success and recognition." },
+          { key: "C", text: "Attachment and authenticity." },
+          { key: "D", text: "Happiness and self-discipline." }
+        ],
+        correct: ["C"]
+      },
+      {
+        id: 10,
+        question: "10. Why is attachment considered a fundamental human need?",
+        isMulti: false,
+        points: 1,
+        options: [
+          { key: "A", text: "It motivates us to establish close relationships that are essential for survival." },
+          { key: "B", text: "It helps us develop independence from an early age." },
+          { key: "C", text: "It allows us to understand and control our emotions." },
+          { key: "D", text: "It encourages us to avoid conflict with other people." }
+        ],
+        correct: ["A"]
+      },
+      {
+        id: 11,
+        question: "11. How might children learn that being nice is necessary for their survival? (Choose TWO answers.)",
+        isMulti: true,
+        points: 2,
+        options: [
+          { key: "A", text: "They receive messages that certain emotions or behaviours are unacceptable." },
+          { key: "B", text: "They are encouraged to express all their feelings freely." },
+          { key: "C", text: "They learn that they are lovable only when they perform well." },
+          { key: "D", text: "They are taught that their personal needs should always come first." }
+        ],
+        correct: ["A", "C"]
+      },
+      {
+        id: 12,
+        question: "12. What can happen when people constantly suppress their true feelings to please others?",
+        isMulti: false,
+        points: 1,
+        options: [
+          { key: "A", text: "They become increasingly aware of their personal needs." },
+          { key: "B", text: "They develop stronger and more authentic relationships." },
+          { key: "C", text: "They may lose touch with their identity and become resentful or emotionally drained." },
+          { key: "D", text: "They become better at dealing with difficult situations." }
+        ],
+        correct: ["C"]
+      },
+      {
+        id: 13,
+        question: "13. Why might excessively nice people fail to recognise that they are suppressing themselves?",
+        isMulti: false,
+        points: 1,
+        options: [
+          { key: "A", text: "They deliberately choose to ignore their emotions." },
+          { key: "B", text: "Their behaviour has become so deeply conditioned that they are unaware of it." },
+          { key: "C", text: "They believe that other people's feelings are always more important." },
+          { key: "D", text: "They are unable to distinguish positive emotions from negative ones." }
+        ],
+        correct: ["B"]
+      },
+      {
+        id: 14,
+        question: "14. What does the narrator suggest is necessary for developing authenticity?",
+        isMulti: false,
+        points: 1,
+        options: [
+          { key: "A", text: "Ending relationships with people who have different opinions." },
+          { key: "B", text: "Learning to control other people's expectations." },
+          { key: "C", text: "Becoming less emotionally dependent on everyone around us." },
+          { key: "D", text: "Developing self-awareness and self-compassion." }
+        ],
+        correct: ["D"]
+      },
+      {
+        id: 15,
+        question: "15. What is the main message of the video?",
+        isMulti: false,
+        points: 1,
+        options: [
+          { key: "A", text: "Being nice is always harmful and should be avoided." },
+          { key: "B", text: "We should prioritise other people's needs to maintain healthy relationships." },
+          { key: "C", text: "We can learn to be more authentic by recognising our conditioning and allowing ourselves to express our true feelings." },
+          { key: "D", text: "People who struggle to express negative emotions are unable to change." }
+        ],
+        correct: ["C"]
+      }
+    ];
+
+    // Score-to-comment scale dictionary mapped up to 23 total score points
+    const scaleComments = [
+      "🫠 Needs a fresh start!",         // 0
+      "🫠 Needs a fresh start!",         // 1
+      "🐌 Keep working on it!",          // 2
+      "🐌 Keep working on it!",          // 3
+      "🌱 Practice makes progress!",     // 4
+      "🌱 Practice makes progress!",     // 5
+      "🐣 You're learning!",             // 6
+      "🍀 A good attempt!",              // 7
+      "🍀 A good attempt!",              // 8
+      "🐝 Keep moving forward!",         // 9
+      "🧩 You're getting the hang of it!",// 10
+      "🐨 A fair effort!",               // 11
+      "🐨 A fair effort!",               // 12
+      "🎈 Not bad!",                     // 13
+      "🦊 Good job!",                    // 14
+      "🌻 You're doing well!",           // 15
+      "🌻 You're doing well!",           // 16
+      "🐬 Nice progress!",               // 17
+      "🎨 Really good work!",            // 18
+      "⚡ Excellent effort!",            // 19
+      "⚡ Excellent effort!",            // 20
+      "🏆 Almost perfect!",              // 21
+      "🏆 Almost perfect!",              // 22
+      "💎 Absolutely brilliant!"          // 23
+    ];
+
+    let isSubmitted = false;
+
+    // Switch between Tabs: Quiz & Reflection
+    function switchTab(tabName) {
+      const quizPage = document.getElementById('page-quiz');
+      const reflectionPage = document.getElementById('page-reflection');
+      const quizBtn = document.getElementById('tab-btn-quiz');
+      const reflectionBtn = document.getElementById('tab-btn-reflection');
+
+      if (tabName === 'quiz') {
+        quizPage.classList.remove('hidden');
+        reflectionPage.classList.add('hidden');
+        
+        quizBtn.className = "px-5 py-3 font-bold text-sm md:text-base transition-all border-b-2 border-purple-500 text-white flex items-center gap-2";
+        reflectionBtn.className = "px-5 py-3 font-bold text-sm md:text-base transition-all border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center gap-2";
+      } else {
+        quizPage.classList.add('hidden');
+        reflectionPage.classList.remove('hidden');
+
+        reflectionBtn.className = "px-5 py-3 font-bold text-sm md:text-base transition-all border-b-2 border-purple-500 text-white flex items-center gap-2";
+        quizBtn.className = "px-5 py-3 font-bold text-sm md:text-base transition-all border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center gap-2";
+      }
+    }
+
+    // Render Questions dynamically
+    function renderQuiz() {
+      const container = document.getElementById('questions-container');
+      container.innerHTML = '';
+
+      questionsData.forEach((q) => {
+        const card = document.createElement('div');
+        card.className = "bg-slate-900 border border-slate-800 rounded-2xl p-5 md:p-6 shadow-md transition-all duration-300 relative";
+        card.id = `q-card-${q.id}`;
+
+        const typeBadge = q.isMulti 
+          ? `<span class="bg-amber-500/10 text-amber-400 border border-amber-500/20 text-xs px-2.5 py-0.5 rounded font-semibold">Select All Correct (${q.correct.length})</span>` 
+          : `<span class="bg-slate-800 text-slate-400 text-xs px-2.5 py-0.5 rounded font-medium">Single Choice</span>`;
+
+        let optionsHTML = '';
+        q.options.forEach(opt => {
+          const inputType = q.isMulti ? 'checkbox' : 'radio';
+          const inputName = `question-${q.id}`;
+          const inputId = `q${q.id}-${opt.key}`;
+
+          optionsHTML += `
+            <label id="label-${q.id}-${opt.key}" for="${inputId}" 
+              class="option-label flex items-start p-3.5 rounded-xl border border-slate-800 bg-slate-950/60 hover:bg-slate-800/80 hover:border-slate-700 cursor-pointer transition-all text-slate-300 hover:text-white">
+              <div class="flex items-center h-6 mr-3">
+                <input type="${inputType}" name="${inputName}" value="${opt.key}" id="${inputId}" 
+                  onchange="updateProgress()" 
+                  class="rounded focus:ring-0 focus:ring-offset-0 focus:outline-none">
+              </div>
+              <div class="text-sm md:text-base leading-relaxed flex-1">
+                <span class="font-bold text-slate-400 mr-1">${opt.key})</span> ${opt.text}
+              </div>
+              <div class="feedback-icon hidden ml-2 text-lg"></div>
+            </label>
+          `;
+        });
+
+        card.innerHTML = `
+          <div class="flex justify-between items-start gap-4 mb-4">
+            <h3 class="text-base md:text-lg font-semibold text-slate-100 leading-snug">
+              ${q.question}
+            </h3>
+            <div class="shrink-0 flex items-center space-x-2">
+              ${typeBadge}
+              <span id="status-icon-${q.id}" class="hidden"></span>
+            </div>
+          </div>
+          <div class="space-y-3">
+            ${optionsHTML}
+          </div>
+        `;
+
+        container.appendChild(card);
+      });
+
+      updateProgress();
+    }
+
+    // Update count of answered questions
+    function updateProgress() {
+      if (isSubmitted) return;
+
+      let answeredCount = 0;
+      questionsData.forEach(q => {
+        const inputs = document.querySelectorAll(`input[name="question-${q.id}"]`);
+        const isAnswered = Array.from(inputs).some(input => input.checked);
+        if (isAnswered) answeredCount++;
+      });
+
+      const countEl = document.getElementById('answered-count');
+      if (countEl) countEl.innerText = answeredCount;
+    }
+
+    // Evaluate Quiz answers ONLY upon clicking Check Answers
+    function checkAnswers() {
+      if (isSubmitted) return;
+      isSubmitted = true;
+
+      let score = 0;
+
+      questionsData.forEach(q => {
+        const card = document.getElementById(`q-card-${q.id}`);
+        const statusIcon = document.getElementById(`status-icon-${q.id}`);
+        const inputs = document.querySelectorAll(`input[name="question-${q.id}"]`);
+        
+        const userChoices = [];
+        inputs.forEach(input => {
+          if (input.checked) userChoices.push(input.value);
+          input.disabled = true; // Lock selections after submission
+        });
+
+        let questionPassed = false;
+
+        if (q.isMulti) {
+          // Award 1 point per correctly identified choice
+          let qScore = 0;
+          userChoices.forEach(val => {
+            if (q.correct.includes(val)) {
+              qScore += 1;
+            }
+          });
+          score += qScore;
+          questionPassed = (qScore === q.correct.length && userChoices.length === q.correct.length);
+        } else {
+          questionPassed = userChoices.length === 1 && userChoices[0] === q.correct[0];
+          if (questionPassed) score += 1;
+        }
+
+        if (questionPassed) {
+          card.classList.add('border-emerald-500/60', 'bg-emerald-950/10');
+          statusIcon.className = "text-emerald-400 text-lg flex items-center";
+          statusIcon.innerHTML = `<i class="fa-solid fa-circle-check"></i>`;
+        } else {
+          card.classList.add('border-red-500/60', 'bg-red-950/10');
+          statusIcon.className = "text-red-400 text-lg flex items-center";
+          statusIcon.innerHTML = `<i class="fa-solid fa-circle-xmark"></i>`;
+        }
+
+        // Apply visual highlights (Green for correct options, Red for wrong choices)
+        q.options.forEach(opt => {
+          const label = document.getElementById(`label-${q.id}-${opt.key}`);
+          const isSelected = userChoices.includes(opt.key);
+          const isTargetCorrect = q.correct.includes(opt.key);
+          const iconContainer = label.querySelector('.feedback-icon');
+
+          label.classList.remove('hover:bg-slate-800/80', 'hover:border-slate-700', 'cursor-pointer');
+          label.classList.add('cursor-default');
+
+          if (isTargetCorrect) {
+            label.classList.add('correct-choice');
+            iconContainer.classList.remove('hidden');
+            iconContainer.innerHTML = `<i class="fa-solid fa-check text-emerald-400"></i>`;
+          } else if (isSelected && !isTargetCorrect) {
+            label.classList.add('wrong-choice');
+            iconContainer.classList.remove('hidden');
+            iconContainer.innerHTML = `<i class="fa-solid fa-xmark text-red-400"></i>`;
+          } else {
+            label.classList.add('opacity-40');
+          }
+        });
+      });
+
+      showModal(score);
+
+      const submitBtn = document.getElementById('submit-btn');
+      submitBtn.disabled = true;
+      submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+    }
+
+    // Modal popup handler
+    function showModal(score) {
+      const modal = document.getElementById('score-modal');
+      const commentEl = document.getElementById('modal-comment');
+      const scoreNumEl = document.getElementById('modal-score-num');
+      const emojiEl = document.getElementById('modal-emoji');
+
+      const fullComment = scaleComments[Math.min(score, scaleComments.length - 1)] || scaleComments[0];
+      const emoji = fullComment.split(' ')[0];
+      const commentText = fullComment.substring(emoji.length).trim();
+
+      emojiEl.innerText = emoji;
+      commentEl.innerText = commentText;
+      scoreNumEl.innerText = score;
+
+      modal.classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('score-modal').classList.add('hidden');
+    }
+
+    function updateReflectionCounter() {
+      const text = document.getElementById('reflection-input').value;
+      document.getElementById('char-count').innerText = `${text.length} characters`;
+    }
+
+    function copyReflection() {
+      const text = document.getElementById('reflection-input').value;
+      if (!text.trim()) return;
+
+      const dummy = document.createElement("textarea");
+      document.body.appendChild(dummy);
+      dummy.value = text;
+      dummy.select();
+      document.execCommand("copy");
+      document.body.removeChild(dummy);
+
+      const status = document.getElementById('copy-status');
+      status.classList.remove('hidden');
+      setTimeout(() => {
+        status.classList.add('hidden');
+      }, 3000);
+    }
+
+    function resetQuiz() {
+      isSubmitted = false;
+
+      const submitBtn = document.getElementById('submit-btn');
+      submitBtn.disabled = false;
+      submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+
+      renderQuiz();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    window.onload = function() {
+      renderQuiz();
+    };
+  </script>
+</body>
+</html>
