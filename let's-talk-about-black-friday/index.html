@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Let's Talk About Black Friday — Interactive Quiz</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              blue: '#3b82f6',
+              blueHover: '#2563eb',
+              dark: '#0f172a',
+              card: '#1e293b',
+              cardHover: '#334155',
+              border: '#334155',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="icon" type="image/png" sizes="48x48" href="favicon.png">
+
+  <style>
+    /* Mandatory Responsive Video Container CSS */
+    .video-container {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        border-radius: 12px;
+    }
+
+    .video-container iframe {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        border: 0;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #475569;
+    }
+    
+    /* Custom input accent */
+    input[type="radio"], input[type="checkbox"] {
+      accent-color: #3b82f6;
+      width: 1.15rem;
+      height: 1.15rem;
+      cursor: pointer;
+    }
+    
+    /* Animation for modal */
+    @keyframes modalPop {
+      0% { transform: scale(0.9); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .animate-pop {
+      animation: modalPop 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    .correct-choice {
+      background-color: rgba(34, 197, 94, 0.15) !important;
+      border-color: #22c55e !important;
+      color: #4ade80 !important;
+    }
+
+    .wrong-choice {
+      background-color: rgba(239, 68, 68, 0.15) !important;
+      border-color: #ef4444 !important;
+      color: #f87171 !important;
+    }
+
+    /* Solid Blue Rounded Badge */
+    .channel-badge {
+      background-color: #3b82f6;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 8px;
+      display: inline-block;
+      box-shadow: 0 4px 14px rgba(59, 130, 246, 0.35);
+    }
+  </style>
+</head>
+<body class="bg-[#0f172a] text-slate-100 font-sans min-h-screen flex flex-col justify-between selection:bg-blue-600 selection:text-white">
+
+  <!-- Main Container -->
+  <div class="max-w-4xl mx-auto px-4 py-8 w-full flex-grow">
+    
+    <!-- Header Section -->
+    <header class="bg-[#1e293b] border border-slate-800 rounded-2xl p-6 md:p-8 mb-6 shadow-2xl relative overflow-hidden">
+      <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-600 via-blue-500 to-sky-400"></div>
+
+      <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+        <!-- Solid Blue Rounded Badge -->
+        <div class="channel-badge">
+          THE MINIMALISTS
+        </div>
+
+        <a href="https://youtu.be/ovncEVsagVA" target="_blank" rel="noopener noreferrer" 
+           class="inline-flex items-center text-xs font-semibold bg-blue-500/10 hover:bg-blue-500/20 text-blue-300 border border-blue-500/30 px-3 py-1.5 rounded-lg transition-colors duration-200">
+          <i class="fa-brands fa-youtube me-2 text-blue-400 text-sm"></i> Watch directly on YouTube
+        </a>
+      </div>
+
+      <h1 class="text-2xl md:text-3xl font-extrabold text-white tracking-tight leading-snug">
+        Let's Talk About Black Friday
+      </h1>
+    </header>
+
+    <!-- Embedded Video Section -->
+    <div class="bg-[#1e293b] border border-slate-800 rounded-2xl p-3 md:p-4 mb-6 shadow-xl">
+      <div class="video-container shadow-inner bg-black">
+        <iframe
+            src="https://www.youtube-nocookie.com/embed/ovncEVsagVA"
+            title="Let's Talk About Black Friday"
+            frameborder="0"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+        </iframe>
+      </div>
+      <div class="flex items-center justify-between px-2 pt-3 text-xs text-slate-400">
+        <span>Having trouble playing the embedded video?</span>
+        <a href="https://youtu.be/ovncEVsagVA" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline font-medium">
+          Watch on YouTube (youtu.be/ovncEVsagVA) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] ml-0.5"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Listening Comprehension Quiz Section -->
+    <div id="page-quiz" class="space-y-6">
+      
+      <div class="bg-[#1e293b]/80 border border-slate-800 rounded-xl p-4 flex items-center justify-between text-sm text-slate-300">
+        <div class="flex items-center space-x-2">
+          <i class="fa-solid fa-circle-info text-blue-400"></i>
+          <span>Choose the correct answer. Some questions may have more than one correct answer.</span>
+        </div>
+        <div id="answered-indicator" class="hidden md:block text-xs font-semibold text-slate-400 bg-slate-900 px-3 py-1 rounded-full border border-slate-700">
+          12 Questions (17 Points)
+        </div>
+      </div>
+
+      <!-- Quiz Form -->
+      <form id="quiz-form" onsubmit="event.preventDefault();" class="space-y-6">
+        <div id="questions-container" class="space-y-6">
+          <!-- Questions dynamically injected via JS -->
+        </div>
+
+        <!-- Submit & Control Bar -->
+        <div class="sticky bottom-4 z-10 pt-4">
+          <div class="bg-[#1e293b]/95 backdrop-blur border border-slate-700/80 p-4 rounded-xl shadow-2xl flex items-center justify-between gap-4">
+            <div class="text-xs text-slate-400 font-medium hidden sm:block">
+              <span id="answered-count" class="text-white font-bold">0</span> of 12 questions answered
+            </div>
+            <div class="flex items-center space-x-3 w-full sm:w-auto justify-end">
+              <button type="button" id="reset-btn" onclick="resetQuiz()" 
+                class="px-5 py-2.5 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm transition-all flex items-center gap-2">
+                <i class="fa-solid fa-rotate-left text-xs"></i> Reset Quiz
+              </button>
+              <button type="button" id="submit-btn" onclick="checkAnswers()" 
+                class="flex-1 sm:flex-initial px-8 py-2.5 rounded-xl bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold text-sm shadow-lg shadow-blue-900/40 transition-all flex items-center justify-center gap-2">
+                <i class="fa-solid fa-check text-xs"></i> Check Answers
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+  <!-- Score Modal Pop-up -->
+  <div id="score-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-[#1e293b] border border-slate-700 w-full max-w-md rounded-2xl p-6 md:p-8 shadow-2xl relative text-center animate-pop">
+      
+      <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors">
+        <i class="fa-solid fa-xmark text-xl"></i>
+      </button>
+
+      <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-blue-500/25 to-sky-400/10 border border-blue-500/40 shadow-lg shadow-blue-500/20 flex items-center justify-center mb-4">
+        <span id="modal-emoji" class="text-4xl">🏆</span>
+      </div>
+
+      <h2 class="text-2xl font-bold text-white mb-1">Quiz Completed!</h2>
+      <p id="modal-comment" class="text-lg font-bold text-blue-400 mb-4">
+        <!-- Scale comment injected here -->
+      </p>
+
+      <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-4 mb-6">
+        <div class="text-xs uppercase tracking-wider text-slate-400 font-bold mb-1">Your Score</div>
+        <div class="text-4xl font-extrabold text-white">
+          <span id="modal-score-num">0</span> <span class="text-slate-500 text-2xl font-medium">/ 17</span>
+        </div>
+      </div>
+
+      <div class="flex gap-3">
+        <button onclick="closeModal()" class="flex-1 px-4 py-2.5 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 text-sm font-semibold transition-all">
+          Review Answers
+        </button>
+        <button onclick="resetQuiz(); closeModal();" class="flex-1 px-4 py-2.5 rounded-xl bg-[#3b82f6] hover:bg-[#2563eb] text-white text-sm font-semibold transition-all shadow-md shadow-blue-900/30">
+          Reset Quiz
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-900 bg-[#0f172a] py-6 text-center text-xs text-slate-500">
+    <p>Based on The Minimalists video: "Let's Talk About Black Friday"</p>
+  </footer>
+
+  <script>
+    // 12 Quiz Questions Data (1 point per question = 12 points total)
+    const questionsData = [
+      {
+        id: 1,
+        question: "1. How does the narrator describe the holiday season for most people?",
+        isMulti: false,
+        options: [
+          { key: "A", text: "The most relaxing time of the year." },
+          { key: "B", text: "The most stressful time of the year." },
+          { key: "C", text: "A time when people stop worrying about money." },
+          { key: "D", text: "A period focused mainly on spending time with family." }
+        ],
+        correct: ["B"]
+      },
+      {
+        id: 2,
+        question: "2. What change does the narrator say has taken place over time?",
+        isMulti: false,
+        options: [
+          { key: "A", text: "Christmas has become less popular." },
+          { key: "B", text: "Santa Claus has become less recognisable." },
+          { key: "C", text: "The holiday season has turned into a holiday shopping season." },
+          { key: "D", text: "People have started celebrating Christmas earlier." }
+        ],
+        correct: ["C"]
+      },
+      {
+        id: 3,
+        question: "3. How has shopping affected people's attitudes towards the holidays?",
+        isMulti: false,
+        options: [
+          { key: "A", text: "It has made them more generous and relaxed." },
+          { key: "B", text: "It has changed their outlook from joyful to anxious." },
+          { key: "C", text: "It has encouraged them to spend more time with loved ones." },
+          { key: "D", text: "It has made Christmas celebrations more meaningful." }
+        ],
+        correct: ["B"]
+      },
+      {
+        id: 4,
+        question: "4. How do retailers prepare for Black Friday?",
+        isMulti: false,
+        options: [
+          { key: "A", text: "They launch advertising campaigns and promote special offers." },
+          { key: "B", text: "They reduce the number of products available." },
+          { key: "C", text: "They focus on encouraging people to save money." },
+          { key: "D", text: "They wait until the last minute to announce discounts." }
+        ],
+        correct: ["A"]
+      },
+      {
+        id: 5,
+        question: "5. Which marketing techniques are mentioned in the video? Choose ALL the correct answers.",
+        isMulti: true,
+        options: [
+          { key: "A", text: "Doorbuster sales." },
+          { key: "B", text: "Early bird specials." },
+          { key: "C", text: "Loyalty programmes." },
+          { key: "D", text: "One-day-only offers." },
+          { key: "E", text: "Newspaper advertisements." },
+          { key: "F", text: "Free delivery on all orders." }
+        ],
+        correct: ["A", "B", "D", "E"]
+      },
+      {
+        id: 6,
+        question: "6. What does the narrator suggest Black Friday represents?",
+        isMulti: false,
+        options: [
+          { key: "A", text: "A successful example of responsible shopping." },
+          { key: "B", text: "A broader reflection of consumer culture." },
+          { key: "C", text: "A positive change in people's attitudes towards money." },
+          { key: "D", text: "A return to traditional Christmas values." }
+        ],
+        correct: ["B"]
+      },
+      {
+        id: 7,
+        question: "7. According to the narrator, how do people behave on Black Friday?",
+        isMulti: false,
+        options: [
+          { key: "A", text: "They buy things without considering the potential harm." },
+          { key: "B", text: "They focus on purchasing only essential items." },
+          { key: "C", text: "They become less interested in material possessions." },
+          { key: "D", text: "They carefully consider the meaning of their purchases." }
+        ],
+        correct: ["A"]
+      },
+      {
+        id: 8,
+        question: "8. What does the narrator suggest people are trying to achieve by buying gifts?",
+        isMulti: false,
+        options: [
+          { key: "A", text: "To impress retailers." },
+          { key: "B", text: "To fill an emotional void with material possessions." },
+          { key: "C", text: "To avoid spending time with their families." },
+          { key: "D", text: "To demonstrate their financial success." }
+        ],
+        correct: ["B"]
+      },
+      {
+        id: 9,
+        question: "9. What criticism does Stephen make about Black Friday?",
+        isMulti: false,
+        options: [
+          { key: "A", text: "People buy expensive things for themselves instead of others." },
+          { key: "B", text: "People fight over things they don't actually need." },
+          { key: "C", text: "Retailers use misleading advertisements to attract customers." },
+          { key: "D", text: "People forget about Christmas traditions." }
+        ],
+        correct: ["B"]
+      },
+      {
+        id: 10,
+        question: "10. What alternatives to buying material gifts does the narrator suggest? Choose ALL the correct answers.",
+        isMulti: true,
+        options: [
+          { key: "A", text: "Giving someone tickets to a concert." },
+          { key: "B", text: "Taking someone out for a nice meal." },
+          { key: "C", text: "Spending time together watching a sunset on the beach." },
+          { key: "D", text: "Giving someone your undivided attention." },
+          { key: "E", text: "Buying someone the latest technology." },
+          { key: "F", text: "Buying more expensive presents to show affection." }
+        ],
+        correct: ["A", "B", "C"]
+      },
+      {
+        id: 11,
+        question: "11. What does the narrator consider the most loving gift?",
+        isMulti: false,
+        options: [
+          { key: "A", text: "Something expensive and memorable." },
+          { key: "B", text: "A carefully chosen material possession." },
+          { key: "C", text: "Your time and undivided attention." },
+          { key: "D", text: "A surprise gift during the holiday season." }
+        ],
+        correct: ["C"]
+      },
+      {
+        id: 12,
+        question: "12. What humorous suggestion does the narrator make at the end of the video?",
+        isMulti: false,
+        options: [
+          { key: "A", text: "Buy everyone a gift card so they can choose their own presents." },
+          { key: "B", text: "Give everyone a giant rubbish bin to throw away unwanted gifts." },
+          { key: "C", text: "Stop exchanging presents altogether." },
+          { key: "D", text: "Donate unwanted Christmas presents to charity." }
+        ],
+        correct: ["B"]
+      }
+    ];
+
+    // 13-tier feedback scale mapped cleanly across scores 0–12
+    const scaleComments = [
+      "🫠 More practice needed!",     // 0
+      "🐌 Keep trying!",              // 1
+      "🌱 Every step counts!",        // 2
+      "🐣 A good start!",             // 3
+      "🍀 Keep going!",               // 4
+      "🐝 You're making progress!",   // 5
+      "🧩 Getting there!",            // 6
+      "🐨 Not bad!",                  // 7
+      "🎈 Nice effort!",              // 8
+      "🦊 Good work!",                // 9
+      "🌻 Very good!",                // 10
+      "⚡ Excellent job!",            // 11
+      "🏆 Absolutely fantastic!"      // 12
+    ];
+
+    let isSubmitted = false;
+
+    // Render Questions dynamically
+    function renderQuiz() {
+      const container = document.getElementById('questions-container');
+      container.innerHTML = '';
+
+      questionsData.forEach((q) => {
+        const card = document.createElement('div');
+        card.className = "bg-[#1e293b] border border-slate-800 rounded-2xl p-5 md:p-6 shadow-md transition-all duration-300 relative";
+        card.id = `q-card-${q.id}`;
+
+        const typeBadge = q.isMulti 
+          ? `<span class="bg-blue-500/15 text-blue-300 border border-blue-500/30 text-xs px-2.5 py-0.5 rounded font-semibold">Select all that apply</span>` 
+          : `<span class="bg-slate-900 text-slate-400 text-xs px-2.5 py-0.5 rounded font-medium border border-slate-800">Single Choice</span>`;
+
+        let optionsHTML = '';
+        q.options.forEach(opt => {
+          const inputType = q.isMulti ? 'checkbox' : 'radio';
+          const inputName = `question-${q.id}`;
+          const inputId = `q${q.id}-${opt.key}`;
+
+          optionsHTML += `
+            <label id="label-${q.id}-${opt.key}" for="${inputId}" 
+              class="option-label flex items-start p-3.5 rounded-xl border border-slate-800 bg-[#0f172a]/70 hover:bg-slate-800/80 hover:border-slate-700 cursor-pointer transition-all text-slate-300 hover:text-white">
+              <div class="flex items-center h-6 mr-3">
+                <input type="${inputType}" name="${inputName}" value="${opt.key}" id="${inputId}" 
+                  onchange="updateProgress()" 
+                  class="rounded focus:ring-0 focus:ring-offset-0 focus:outline-none">
+              </div>
+              <div class="text-sm md:text-base leading-relaxed flex-1">
+                <span class="font-bold text-slate-400 mr-1">${opt.key})</span> ${opt.text}
+              </div>
+              <div class="feedback-icon hidden ml-2 text-lg"></div>
+            </label>
+          `;
+        });
+
+        card.innerHTML = `
+          <div class="flex justify-between items-start gap-4 mb-4">
+            <h3 class="text-base md:text-lg font-semibold text-slate-100 leading-snug">
+              ${q.question}
+            </h3>
+            <div class="shrink-0 flex items-center space-x-2">
+              ${typeBadge}
+              <span id="status-icon-${q.id}" class="hidden"></span>
+            </div>
+          </div>
+          <div class="space-y-3">
+            ${optionsHTML}
+          </div>
+        `;
+
+        container.appendChild(card);
+      });
+
+      updateProgress();
+    }
+
+    // Update count of answered questions
+    function updateProgress() {
+      let answeredCount = 0;
+      questionsData.forEach(q => {
+        const checked = document.querySelectorAll(`input[name="question-${q.id}"]:checked`);
+        if (checked.length > 0) answeredCount++;
+      });
+      const countEl = document.getElementById('answered-count');
+      if (countEl) {
+        countEl.textContent = answeredCount;
+      }
+    }
+
+    // Evaluate Quiz answers ONLY upon clicking Check Answers (17 points total: 10 single-choice + 4 pts Q5 + 3 pts Q10)
+    function checkAnswers() {
+      if (isSubmitted) return;
+      isSubmitted = true;
+
+      let score = 0;
+
+      questionsData.forEach(q => {
+        const card = document.getElementById(`q-card-${q.id}`);
+        const statusIcon = document.getElementById(`status-icon-${q.id}`);
+        const inputs = document.querySelectorAll(`input[name="question-${q.id}"]`);
+        
+        const userChoices = [];
+        inputs.forEach(input => {
+          if (input.checked) userChoices.push(input.value);
+          input.disabled = true; // Lock selections after submission
+        });
+
+        let questionPassed = false;
+
+        if (q.isMulti) {
+          // Award 1 point per correct option selected, minus 1 per wrong option selected (floored at 0)
+          let qPoints = 0;
+          userChoices.forEach(val => {
+            if (q.correct.includes(val)) {
+              qPoints += 1;
+            } else {
+              qPoints -= 1;
+            }
+          });
+          qPoints = Math.max(0, qPoints);
+          score += qPoints;
+
+          const hasAllCorrect = q.correct.every(val => userChoices.includes(val));
+          const hasNoExtra = userChoices.length === q.correct.length;
+          questionPassed = hasAllCorrect && hasNoExtra;
+        } else {
+          questionPassed = userChoices.length === 1 && userChoices[0] === q.correct[0];
+          if (questionPassed) score += 1;
+        }
+
+        if (questionPassed) {
+          card.classList.remove('border-slate-800');
+          card.classList.add('border-emerald-500/70', 'bg-emerald-950/15');
+          statusIcon.className = "text-emerald-400 text-lg flex items-center";
+          statusIcon.innerHTML = `<i class="fa-solid fa-circle-check"></i>`;
+        } else {
+          card.classList.remove('border-slate-800');
+          card.classList.add('border-red-500/70', 'bg-red-950/15');
+          statusIcon.className = "text-red-400 text-lg flex items-center";
+          statusIcon.innerHTML = `<i class="fa-solid fa-circle-xmark"></i>`;
+        }
+
+        // Apply item-level green/red option highlights
+        q.options.forEach(opt => {
+          const label = document.getElementById(`label-${q.id}-${opt.key}`);
+          const isSelected = userChoices.includes(opt.key);
+          const isTargetCorrect = q.correct.includes(opt.key);
+          const iconContainer = label.querySelector('.feedback-icon');
+
+          label.classList.remove('hover:bg-slate-800/80', 'hover:border-slate-700', 'cursor-pointer');
+          label.classList.add('cursor-default');
+
+          if (isTargetCorrect) {
+            label.classList.add('correct-choice');
+            iconContainer.classList.remove('hidden');
+            iconContainer.innerHTML = `<i class="fa-solid fa-check text-emerald-400"></i>`;
+          } else if (isSelected && !isTargetCorrect) {
+            label.classList.add('wrong-choice');
+            iconContainer.classList.remove('hidden');
+            iconContainer.innerHTML = `<i class="fa-solid fa-xmark text-red-400"></i>`;
+          } else {
+            label.classList.add('opacity-45');
+          }
+        });
+      });
+
+      showModal(score);
+
+      const submitBtn = document.getElementById('submit-btn');
+      submitBtn.disabled = true;
+      submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+    }
+
+    // Modal popup handler (maps 0-17 score across the 13 scale tiers)
+    function showModal(score) {
+      const modal = document.getElementById('score-modal');
+      const commentEl = document.getElementById('modal-comment');
+      const scoreNumEl = document.getElementById('modal-score-num');
+      const emojiEl = document.getElementById('modal-emoji');
+
+      const clampedScore = Math.min(Math.max(score, 0), 17);
+      const scaleIndex = Math.round((clampedScore / 17) * (scaleComments.length - 1));
+      const fullComment = scaleComments[scaleIndex];
+      const spaceIndex = fullComment.indexOf(' ');
+      const emoji = fullComment.slice(0, spaceIndex);
+      const commentText = fullComment.slice(spaceIndex + 1);
+
+      emojiEl.innerText = emoji;
+      commentEl.innerText = commentText;
+      scoreNumEl.innerText = clampedScore;
+
+      modal.classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('score-modal').classList.add('hidden');
+    }
+
+    function resetQuiz() {
+      isSubmitted = false;
+
+      const submitBtn = document.getElementById('submit-btn');
+      submitBtn.disabled = false;
+      submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+
+      renderQuiz();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    window.onload = function() {
+      renderQuiz();
+    };
+  </script>
+</body>
+</html>
