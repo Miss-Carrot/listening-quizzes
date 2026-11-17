@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>How seniors are skydiving, exercising and more with virtual reality — Quiz & Reflection</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              purple: '#8b5cf6',
+              purpleHover: '#7c3aed',
+              dark: '#0f172a',
+              card: '#1e293b',
+              cardHover: '#334155',
+              border: '#334155',
+            }
+          }
+        }
+      }
+    }
+  </script>
+<link rel="icon" type="image/png" sizes="48x48" href="favicon.png">
+  
+  <style>
+    /* Mandatory Responsive Video Container CSS */
+    .video-container {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        border-radius: 12px;
+    }
+
+    .video-container iframe {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        border: 0;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #475569;
+    }
+    
+    /* Custom input accent */
+    input[type="radio"], input[type="checkbox"] {
+      accent-color: #8b5cf6;
+      width: 1.15rem;
+      height: 1.15rem;
+      cursor: pointer;
+    }
+    
+    /* Animation for modal */
+    @keyframes modalPop {
+      0% { transform: scale(0.9); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .animate-pop {
+      animation: modalPop 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    .correct-choice {
+      background-color: rgba(34, 197, 94, 0.15) !important;
+      border-color: #22c55e !important;
+      color: #4ade80 !important;
+    }
+
+    .wrong-choice {
+      background-color: rgba(239, 68, 68, 0.15) !important;
+      border-color: #ef4444 !important;
+      color: #f87171 !important;
+    }
+
+    /* Solid Purple Rounded Badge */
+    .channel-badge {
+      background-color: #8b5cf6;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 8px;
+      display: inline-block;
+      box-shadow: 0 4px 14px rgba(139, 92, 246, 0.35);
+    }
+  </style>
+</head>
+<body class="bg-[#0f172a] text-slate-100 font-sans min-h-screen flex flex-col justify-between selection:bg-purple-600 selection:text-white">
+
+  <!-- Main Container -->
+  <div class="max-w-4xl mx-auto px-4 py-8 w-full flex-grow">
+    
+    <!-- Header Section -->
+    <header class="bg-[#1e293b] border border-slate-800 rounded-2xl p-6 md:p-8 mb-6 shadow-2xl relative overflow-hidden">
+      <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-purple-600 via-violet-500 to-fuchsia-400"></div>
+
+      <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+        <!-- Solid Purple Rounded Badge -->
+        <div class="channel-badge">
+          TODAY
+        </div>
+
+        <a href="https://youtu.be/pj2i30VsfmE" target="_blank" rel="noopener noreferrer" 
+           class="inline-flex items-center text-xs font-semibold bg-purple-500/10 hover:bg-purple-500/20 text-purple-300 border border-purple-500/30 px-3 py-1.5 rounded-lg transition-colors duration-200">
+          <i class="fa-brands fa-youtube me-2 text-purple-400 text-sm"></i> Watch on YouTube
+        </a>
+      </div>
+
+      <h1 class="text-2xl md:text-3xl font-extrabold text-white tracking-tight leading-snug mb-6">
+        How seniors are skydiving, exercising and more with virtual reality
+      </h1>
+
+      <!-- Responsive Embedded Video -->
+      <div class="video-container bg-slate-950 border border-slate-700/80 shadow-xl">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/pj2i30VsfmE"
+          title="How seniors are skydiving, exercising and more with virtual reality"
+          frameborder="0"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </header>
+
+    <!-- Tab Navigation Under Header -->
+    <div class="flex border-b border-slate-800 mb-6 gap-2">
+      <button id="tab-btn-quiz" onclick="switchTab('quiz')" 
+        class="px-5 py-3 text-sm md:text-base font-bold text-white border-b-2 border-purple-500 bg-purple-500/10 rounded-t-xl transition-all">
+        <i class="fa-solid fa-headphones mr-2 text-purple-400"></i>Listening Comprehension
+      </button>
+      <button id="tab-btn-reflection" onclick="switchTab('reflection')" 
+        class="px-5 py-3 text-sm md:text-base font-bold text-slate-400 hover:text-slate-200 border-b-2 border-transparent hover:bg-slate-800/50 rounded-t-xl transition-all">
+        <i class="fa-regular fa-comment-dots mr-2"></i>Reflection
+      </button>
+    </div>
+
+    <!-- PAGE 1: Listening Comprehension Quiz Section -->
+    <div id="page-quiz" class="space-y-6">
+      
+      <div class="bg-[#1e293b]/80 border border-slate-800 rounded-xl p-4 flex items-center justify-between text-sm text-slate-300">
+        <div class="flex items-center space-x-2">
+          <i class="fa-solid fa-circle-info text-purple-400"></i>
+          <span>Task: Choose the correct answer.</span>
+        </div>
+        <div id="answered-indicator" class="hidden md:block text-xs font-semibold text-slate-400 bg-slate-900 px-3 py-1 rounded-full border border-slate-700">
+          10 Questions (10 Points)
+        </div>
+      </div>
+
+      <!-- Quiz Form -->
+      <form id="quiz-form" onsubmit="event.preventDefault();" class="space-y-6">
+        <div id="questions-container" class="space-y-6">
+          <!-- Questions dynamically injected via JS -->
+        </div>
+
+        <!-- Submit & Control Bar -->
+        <div class="sticky bottom-4 z-10 pt-4">
+          <div class="bg-[#1e293b]/95 backdrop-blur border border-slate-700/80 p-4 rounded-xl shadow-2xl flex items-center justify-between gap-4">
+            <div class="text-xs text-slate-400 font-medium hidden sm:block">
+              <span id="answered-count" class="text-white font-bold">0</span> of 10 questions answered
+            </div>
+            <div class="flex items-center space-x-3 w-full sm:w-auto justify-end">
+              <button type="button" id="reset-btn" onclick="resetQuiz()" 
+                class="px-5 py-2.5 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm transition-all flex items-center gap-2">
+                <i class="fa-solid fa-rotate-left text-xs"></i> Reset Quiz
+              </button>
+              <button type="button" id="submit-btn" onclick="checkAnswers()" 
+                class="flex-1 sm:flex-initial px-8 py-2.5 rounded-xl bg-[#8b5cf6] hover:bg-[#7c3aed] text-white font-bold text-sm shadow-lg shadow-purple-900/40 transition-all flex items-center justify-center gap-2">
+                <i class="fa-solid fa-check text-xs"></i> Check Answers
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- PAGE 2: Reflection Section -->
+    <div id="page-reflection" class="hidden space-y-6">
+      <div class="bg-[#1e293b] border border-slate-800 rounded-2xl p-6 md:p-8 shadow-xl">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-purple-400">
+            <i class="fa-brands fa-youtube text-xl"></i>
+          </div>
+          <div>
+            <h2 class="text-xl font-bold text-white">Reflection</h2>
+            <p class="text-xs text-slate-400">Pre-lesson Homework Task</p>
+          </div>
+        </div>
+
+        <div class="bg-slate-900/80 border-l-4 border-purple-500 p-4 rounded-r-xl text-slate-200 text-sm md:text-base leading-relaxed mb-6">
+          <strong>Task:</strong> What do you think about this? Think of a comment you might want to leave under this video and send it to your teacher in DMs before the lesson.
+        </div>
+
+        <label for="reflection-input" class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">
+          Draft Your Comment Below
+        </label>
+        <textarea id="reflection-input" rows="5" 
+          placeholder="Write your thoughts here... (e.g., 'I think virtual reality is an amazing tool for seniors because...')"
+          class="w-full bg-[#0f172a] border border-slate-700 focus:border-purple-500 rounded-xl p-4 text-slate-100 placeholder-slate-500 text-sm md:text-base focus:outline-none transition-colors mb-4"></textarea>
+
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <button type="button" onclick="copyReflection()" 
+            class="px-6 py-2.5 rounded-xl bg-[#8b5cf6] hover:bg-[#7c3aed] text-white font-bold text-sm shadow-lg shadow-purple-900/40 transition-all flex items-center gap-2">
+            <i class="fa-regular fa-copy"></i> Copy Comment for Teacher DMs
+          </button>
+          <span id="copy-feedback" class="hidden text-emerald-400 text-sm font-semibold flex items-center gap-1.5">
+            <i class="fa-solid fa-circle-check"></i> Copied to clipboard! Ready to paste in DMs.
+          </span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Score Modal Pop-up -->
+  <div id="score-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-[#1e293b] border border-slate-700 w-full max-w-md rounded-2xl p-6 md:p-8 shadow-2xl relative text-center animate-pop">
+      
+      <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors">
+        <i class="fa-solid fa-xmark text-xl"></i>
+      </button>
+
+      <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-purple-500/25 to-fuchsia-400/10 border border-purple-500/40 shadow-lg shadow-purple-500/20 flex items-center justify-center mb-4">
+        <span id="modal-emoji" class="text-4xl">🏆</span>
+      </div>
+
+      <h2 class="text-2xl font-bold text-white mb-1">Quiz Completed!</h2>
+      <p id="modal-comment" class="text-lg font-bold text-purple-400 mb-4">
+        <!-- Scale comment injected here -->
+      </p>
+
+      <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-4 mb-6">
+        <div class="text-xs uppercase tracking-wider text-slate-400 font-bold mb-1">Your Score</div>
+        <div class="text-4xl font-extrabold text-white">
+          <span id="modal-score-num">0</span> <span class="text-slate-500 text-2xl font-medium">/ 10</span>
+        </div>
+      </div>
+
+      <div class="flex gap-3">
+        <button onclick="closeModal()" class="flex-1 px-4 py-2.5 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 text-sm font-semibold transition-all">
+          Review Answers
+        </button>
+        <button onclick="resetQuiz(); closeModal();" class="flex-1 px-4 py-2.5 rounded-xl bg-[#8b5cf6] hover:bg-[#7c3aed] text-white text-sm font-semibold transition-all shadow-md shadow-purple-900/30">
+          Reset Quiz
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-900 bg-[#0f172a] py-6 text-center text-xs text-slate-500">
+    <p>Based on TODAY report: "How seniors are skydiving, exercising and more with virtual reality"</p>
+  </footer>
+
+  <script>
+    // 10 Quiz Questions Data (1 point per question = 10 points total)
+    const questionsData = [
+      {
+        id: 1,
+        question: "1. Why did the reporter decide to visit River Spring Living?",
+        isMulti: false,
+        options: [
+          { key: "A", text: "He wanted to learn how to become a virtual reality guide." },
+          { key: "B", text: "He had heard that some seniors were very skilled at using virtual reality." },
+          { key: "C", text: "He was researching new fitness programmes for older adults." },
+          { key: "D", text: "He wanted to interview the CEO about senior care." }
+        ],
+        correct: ["B"]
+      },
+      {
+        id: 2,
+        question: "2. What activities can residents experience using virtual reality?",
+        isMulti: false,
+        options: [
+          { key: "A", text: "Scuba diving, skiing and mountain climbing." },
+          { key: "B", text: "Racing cars, swimming and hiking." },
+          { key: "C", text: "Riding roller coasters, surfing and skydiving." },
+          { key: "D", text: "Bungee jumping, sailing and cycling." }
+        ],
+        correct: ["C"]
+      },
+      {
+        id: 3,
+        question: "3. Where do residents experience these virtual adventures?",
+        isMulti: false,
+        options: [
+          { key: "A", text: "In a specially designed outdoor area." },
+          { key: "B", text: "In a virtual reality training centre." },
+          { key: "C", text: "From the comfort and safety of an armchair." },
+          { key: "D", text: "In a large room equipped with sports equipment." }
+        ],
+        correct: ["C"]
+      },
+      {
+        id: 4,
+        question: "4. According to the report, what benefits can virtual reality offer older adults?",
+        isMulti: false,
+        options: [
+          { key: "A", text: "It can improve mental cognition and reduce loneliness." },
+          { key: "B", text: "It can help them recover their physical strength after illness." },
+          { key: "C", text: "It can improve their eyesight and memory." },
+          { key: "D", text: "It can help them sleep better and manage pain." }
+        ],
+        correct: ["A"]
+      },
+      {
+        id: 5,
+        question: "5. How does one of the residents describe her experience after using the headset?",
+        isMulti: false,
+        options: [
+          { key: "A", text: "Exciting but exhausting." },
+          { key: "B", text: "Strange and slightly frightening." },
+          { key: "C", text: "Comfortable, calm and beautiful." },
+          { key: "D", text: "Confusing but entertaining." }
+        ],
+        correct: ["C"]
+      },
+      {
+        id: 6,
+        question: "6. What misconception about older adults and technology does David mention?",
+        isMulti: false,
+        options: [
+          { key: "A", text: "They are mainly interested in technology for communication." },
+          { key: "B", text: "They find technology too complicated and may feel intimidated by it." },
+          { key: "C", text: "They prefer traditional activities to anything involving technology." },
+          { key: "D", text: "They are unable to learn how to use modern devices." }
+        ],
+        correct: ["B"]
+      },
+      {
+        id: 7,
+        question: "7. How does the facility use virtual reality to support residents' physical fitness?",
+        isMulti: false,
+        options: [
+          { key: "A", text: "It offers virtual group walks and dance classes." },
+          { key: "B", text: "It allows residents to compete in virtual sports tournaments." },
+          { key: "C", text: "It provides special fitness programmes that give residents a full-body workout." },
+          { key: "D", text: "It helps residents monitor their heart rate while exercising." }
+        ],
+        correct: ["C"]
+      },
+      {
+        id: 8,
+        question: "8. What does the reporter notice when he tries the virtual reality fitness activity?",
+        isMulti: false,
+        options: [
+          { key: "A", text: "He finds it much easier than he expected." },
+          { key: "B", text: "He starts sweating during the activity." },
+          { key: "C", text: "He struggles to understand how the headset works." },
+          { key: "D", text: "He becomes bored after a few minutes." }
+        ],
+        correct: ["B"]
+      },
+      {
+        id: 9,
+        question: "9. How does David think virtual reality will develop in senior living facilities?",
+        isMulti: false,
+        options: [
+          { key: "A", text: "It will probably become a standard feature, like other technologies that are common today." },
+          { key: "B", text: "It will eventually replace traditional activities in senior communities." },
+          { key: "C", text: "It will remain an optional activity for residents who enjoy adventure sports." },
+          { key: "D", text: "It will mainly be used for medical treatment and rehabilitation." }
+        ],
+        correct: ["D"]
+      },
+      {
+        id: 10,
+        question: "10. Besides adventure sports, what can seniors use virtual reality for?",
+        isMulti: false,
+        options: [
+          { key: "A", text: "Learning foreign languages and attending online classes." },
+          { key: "B", text: "Meeting family members who live abroad." },
+          { key: "C", text: "Watching films and attending live concerts." },
+          { key: "D", text: "Taking virtual holidays and revisiting places connected to fond memories." }
+        ],
+        correct: ["D"]
+      }
+    ];
+
+    // 11-tier feedback scale mapped 1-to-1 across scores 0–10
+    const scaleComments = [
+      "😟 Needs more work!",        // 0
+      "📚 Keep practising!",         // 1
+      "🌱 Every try counts!",        // 2
+      "🐣 A good start!",            // 3
+      "💪 Keep going!",              // 4
+      "📈 You're improving!",        // 5
+      "🛤️ Getting there!",           // 6
+      "👍 Nice effort!",             // 7
+      "👏 Good job!",                // 8
+      "🌟 Great work!",              // 9
+      "🏆 Absolutely nailed it!"     // 10
+    ];
+
+    let isSubmitted = false;
+
+    // Tab Switcher between Quiz and Reflection
+    function switchTab(tab) {
+      const quizPage = document.getElementById('page-quiz');
+      const reflectionPage = document.getElementById('page-reflection');
+      const btnQuiz = document.getElementById('tab-btn-quiz');
+      const btnReflection = document.getElementById('tab-btn-reflection');
+
+      if (tab === 'quiz') {
+        quizPage.classList.remove('hidden');
+        reflectionPage.classList.add('hidden');
+        
+        btnQuiz.className = "px-5 py-3 text-sm md:text-base font-bold text-white border-b-2 border-purple-500 bg-purple-500/10 rounded-t-xl transition-all";
+        btnReflection.className = "px-5 py-3 text-sm md:text-base font-bold text-slate-400 hover:text-slate-200 border-b-2 border-transparent hover:bg-slate-800/50 rounded-t-xl transition-all";
+      } else {
+        quizPage.classList.add('hidden');
+        reflectionPage.classList.remove('hidden');
+
+        btnReflection.className = "px-5 py-3 text-sm md:text-base font-bold text-white border-b-2 border-purple-500 bg-purple-500/10 rounded-t-xl transition-all";
+        btnQuiz.className = "px-5 py-3 text-sm md:text-base font-bold text-slate-400 hover:text-slate-200 border-b-2 border-transparent hover:bg-slate-800/50 rounded-t-xl transition-all";
+      }
+    }
+
+    // Copy Reflection comment using execCommand for iframe compatibility
+    function copyReflection() {
+      const textarea = document.getElementById('reflection-input');
+      if (!textarea.value.trim()) {
+        textarea.focus();
+        return;
+      }
+      textarea.select();
+      textarea.setSelectionRange(0, 99999);
+      try {
+        document.execCommand('copy');
+        const feedback = document.getElementById('copy-feedback');
+        feedback.classList.remove('hidden');
+        setTimeout(() => feedback.classList.add('hidden'), 3000);
+      } catch (err) {
+        console.error('Copy failed', err);
+      }
+    }
+
+    // Render Questions dynamically
+    function renderQuiz() {
+      const container = document.getElementById('questions-container');
+      container.innerHTML = '';
+
+      questionsData.forEach((q) => {
+        const card = document.createElement('div');
+        card.className = "bg-[#1e293b] border border-slate-800 rounded-2xl p-5 md:p-6 shadow-md transition-all duration-300 relative";
+        card.id = `q-card-${q.id}`;
+
+        let optionsHTML = '';
+        q.options.forEach(opt => {
+          const inputType = q.isMulti ? 'checkbox' : 'radio';
+          const inputName = `question-${q.id}`;
+          const inputId = `q${q.id}-${opt.key}`;
+
+          optionsHTML += `
+            <label id="label-${q.id}-${opt.key}" for="${inputId}" 
+              class="option-label flex items-start p-3.5 rounded-xl border border-slate-800 bg-[#0f172a]/70 hover:bg-slate-800/80 hover:border-slate-700 cursor-pointer transition-all text-slate-300 hover:text-white">
+              <div class="flex items-center h-6 mr-3">
+                <input type="${inputType}" name="${inputName}" value="${opt.key}" id="${inputId}" 
+                  onchange="updateProgress()" 
+                  class="rounded focus:ring-0 focus:ring-offset-0 focus:outline-none">
+              </div>
+              <div class="text-sm md:text-base leading-relaxed flex-1">
+                <span class="font-bold text-slate-400 mr-1">${opt.key})</span> ${opt.text}
+              </div>
+              <div class="feedback-icon hidden ml-2 text-lg"></div>
+            </label>
+          `;
+        });
+
+        card.innerHTML = `
+          <div class="flex justify-between items-start gap-4 mb-4">
+            <h3 class="text-base md:text-lg font-semibold text-slate-100 leading-snug">
+              ${q.question}
+            </h3>
+            <div class="shrink-0 flex items-center space-x-2">
+              <span id="status-icon-${q.id}" class="hidden"></span>
+            </div>
+          </div>
+          <div class="space-y-3">
+            ${optionsHTML}
+          </div>
+        `;
+
+        container.appendChild(card);
+      });
+
+      updateProgress();
+    }
+
+    // Update count of answered questions
+    function updateProgress() {
+      let answeredCount = 0;
+      questionsData.forEach(q => {
+        const checked = document.querySelectorAll(`input[name="question-${q.id}"]:checked`);
+        if (checked.length > 0) answeredCount++;
+      });
+      const countEl = document.getElementById('answered-count');
+      if (countEl) {
+        countEl.textContent = answeredCount;
+      }
+    }
+
+    // Evaluate Quiz answers ONLY upon clicking Check Answers (10 points total)
+    function checkAnswers() {
+      if (isSubmitted) return;
+      isSubmitted = true;
+
+      let score = 0;
+
+      questionsData.forEach(q => {
+        const card = document.getElementById(`q-card-${q.id}`);
+        const statusIcon = document.getElementById(`status-icon-${q.id}`);
+        const inputs = document.querySelectorAll(`input[name="question-${q.id}"]`);
+        
+        const userChoices = [];
+        inputs.forEach(input => {
+          if (input.checked) userChoices.push(input.value);
+          input.disabled = true; // Lock selections after submission
+        });
+
+        const questionPassed = userChoices.length === 1 && userChoices[0] === q.correct[0];
+        if (questionPassed) score += 1;
+
+        if (questionPassed) {
+          card.classList.remove('border-slate-800');
+          card.classList.add('border-emerald-500/70', 'bg-emerald-950/15');
+          statusIcon.className = "text-emerald-400 text-lg flex items-center";
+          statusIcon.innerHTML = `<i class="fa-solid fa-circle-check"></i>`;
+        } else {
+          card.classList.remove('border-slate-800');
+          card.classList.add('border-red-500/70', 'bg-red-950/15');
+          statusIcon.className = "text-red-400 text-lg flex items-center";
+          statusIcon.innerHTML = `<i class="fa-solid fa-circle-xmark"></i>`;
+        }
+
+        // Apply item-level green/red option highlights
+        q.options.forEach(opt => {
+          const label = document.getElementById(`label-${q.id}-${opt.key}`);
+          const isSelected = userChoices.includes(opt.key);
+          const isTargetCorrect = q.correct.includes(opt.key);
+          const iconContainer = label.querySelector('.feedback-icon');
+
+          label.classList.remove('hover:bg-slate-800/80', 'hover:border-slate-700', 'cursor-pointer');
+          label.classList.add('cursor-default');
+
+          if (isTargetCorrect) {
+            label.classList.add('correct-choice');
+            iconContainer.classList.remove('hidden');
+            iconContainer.innerHTML = `<i class="fa-solid fa-check text-emerald-400"></i>`;
+          } else if (isSelected && !isTargetCorrect) {
+            label.classList.add('wrong-choice');
+            iconContainer.classList.remove('hidden');
+            iconContainer.innerHTML = `<i class="fa-solid fa-xmark text-red-400"></i>`;
+          } else {
+            label.classList.add('opacity-45');
+          }
+        });
+      });
+
+      showModal(score);
+
+      const submitBtn = document.getElementById('submit-btn');
+      submitBtn.disabled = true;
+      submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+    }
+
+    // Modal popup handler (maps 0-10 score directly to the 11 scale tiers)
+    function showModal(score) {
+      const modal = document.getElementById('score-modal');
+      const commentEl = document.getElementById('modal-comment');
+      const scoreNumEl = document.getElementById('modal-score-num');
+      const emojiEl = document.getElementById('modal-emoji');
+
+      const clampedScore = Math.min(Math.max(score, 0), 10);
+      const fullComment = scaleComments[clampedScore];
+      const spaceIndex = fullComment.indexOf(' ');
+      const emoji = fullComment.slice(0, spaceIndex);
+      const commentText = fullComment.slice(spaceIndex + 1);
+
+      emojiEl.innerText = emoji;
+      commentEl.innerText = commentText;
+      scoreNumEl.innerText = clampedScore;
+
+      modal.classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('score-modal').classList.add('hidden');
+    }
+
+    function resetQuiz() {
+      isSubmitted = false;
+
+      const submitBtn = document.getElementById('submit-btn');
+      submitBtn.disabled = false;
+      submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+
+      renderQuiz();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    window.onload = function() {
+      renderQuiz();
+    };
+  </script>
+</body>
+</html>
