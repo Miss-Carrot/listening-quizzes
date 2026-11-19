@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>The most devious cheat in Olympic Games history? — Interactive Quiz</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              accent: '#10b981',
+              accentHover: '#059669',
+              dark: '#0f172a',
+              card: '#1e293b',
+              cardHover: '#334155',
+              border: '#334155',
+            }
+          }
+        }
+      }
+    }
+  </script>
+ <link rel="icon" type="image/png" sizes="48x48" href="favicon.png">
+  
+  <style>
+    /* Mandatory Responsive Video Container CSS */
+    .video-container {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        border-radius: 12px;
+    }
+
+    .video-container iframe {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        border: 0;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #475569;
+    }
+    
+    /* Custom input accent */
+    input[type="radio"], input[type="checkbox"] {
+      accent-color: #10b981;
+      width: 1.15rem;
+      height: 1.15rem;
+      cursor: pointer;
+    }
+    
+    /* Animation for modal */
+    @keyframes modalPop {
+      0% { transform: scale(0.9); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .animate-pop {
+      animation: modalPop 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    .correct-choice {
+      background-color: rgba(34, 197, 94, 0.15) !important;
+      border-color: #22c55e !important;
+      color: #4ade80 !important;
+    }
+
+    .wrong-choice {
+      background-color: rgba(239, 68, 68, 0.15) !important;
+      border-color: #ef4444 !important;
+      color: #f87171 !important;
+    }
+
+    /* Solid Emerald Rounded Badge */
+    .channel-badge {
+      background-color: #10b981;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 8px;
+      display: inline-block;
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+    }
+  </style>
+</head>
+<body class="bg-[#0f172a] text-slate-100 font-sans min-h-screen flex flex-col justify-between selection:bg-emerald-600 selection:text-white">
+
+  <!-- Main Container -->
+  <div class="max-w-4xl mx-auto px-4 py-8 w-full flex-grow">
+    
+    <!-- Header Section -->
+    <header class="bg-[#1e293b] border border-slate-800 rounded-2xl p-6 md:p-8 mb-6 shadow-2xl relative overflow-hidden">
+      <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-emerald-600 via-teal-500 to-cyan-400"></div>
+
+      <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+        <!-- Solid Rounded Badge -->
+        <div class="channel-badge">
+          OLYMPIC GAMES
+        </div>
+
+        <a href="https://youtu.be/I6h9055PQRw" target="_blank" rel="noopener noreferrer" 
+           class="inline-flex items-center text-xs font-semibold bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-3 py-1.5 rounded-lg transition-colors duration-200">
+          <i class="fa-brands fa-youtube me-2 text-emerald-400 text-sm"></i> Watch on YouTube
+        </a>
+      </div>
+
+      <h1 class="text-2xl md:text-3xl font-extrabold text-white tracking-tight leading-snug mb-6">
+        The most devious cheat in Olympic Games history?
+      </h1>
+
+      <!-- Responsive Embedded Video -->
+      <div class="video-container bg-slate-950 border border-slate-700/80 shadow-xl">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/I6h9055PQRw"
+          title="The most devious cheat in Olympic Games history?"
+          frameborder="0"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </header>
+
+    <!-- Tab Navigation Under Header -->
+    <div class="flex flex-wrap border-b border-slate-800 mb-6 gap-2">
+      <button id="tab-btn-quiz" onclick="switchTab('quiz')" 
+        class="px-4 md:px-5 py-3 text-sm md:text-base font-bold text-white border-b-2 border-emerald-500 bg-emerald-500/10 rounded-t-xl transition-all">
+        <i class="fa-solid fa-headphones mr-2 text-emerald-400"></i>Listening Comprehension
+      </button>
+      <button id="tab-btn-vocab" onclick="switchTab('vocab')" 
+        class="px-4 md:px-5 py-3 text-sm md:text-base font-bold text-slate-400 hover:text-slate-200 border-b-2 border-transparent hover:bg-slate-800/50 rounded-t-xl transition-all">
+        <i class="fa-solid fa-language mr-2"></i>Vocabulary
+      </button>
+      <button id="tab-btn-practice" onclick="switchTab('practice')" 
+        class="px-4 md:px-5 py-3 text-sm md:text-base font-bold text-slate-400 hover:text-slate-200 border-b-2 border-transparent hover:bg-slate-800/50 rounded-t-xl transition-all">
+        <i class="fa-solid fa-pen-to-square mr-2"></i>Vocabulary Practice
+      </button>
+    </div>
+
+    <!-- PAGE 1: Listening Comprehension Quiz Section -->
+    <div id="page-quiz" class="space-y-6">
+      
+      <div class="bg-[#1e293b]/80 border border-slate-800 rounded-xl p-4 flex items-center justify-between text-sm text-slate-300">
+        <div class="flex items-center space-x-2">
+          <i class="fa-solid fa-circle-info text-emerald-400"></i>
+          <span>Task: Choose the correct answer.</span>
+        </div>
+        <div class="hidden md:block text-xs font-semibold text-slate-400 bg-slate-900 px-3 py-1 rounded-full border border-slate-700">
+          10 Questions (10 Points)
+        </div>
+      </div>
+
+      <!-- Quiz Form -->
+      <form id="quiz-form" onsubmit="event.preventDefault();" class="space-y-6">
+        <div id="questions-container" class="space-y-6">
+          <!-- Questions dynamically injected via JS -->
+        </div>
+
+        <!-- Submit & Control Bar -->
+        <div class="sticky bottom-4 z-10 pt-4">
+          <div class="bg-[#1e293b]/95 backdrop-blur border border-slate-700/80 p-4 rounded-xl shadow-2xl flex items-center justify-between gap-4">
+            <div class="text-xs text-slate-400 font-medium hidden sm:block">
+              <span id="answered-count" class="text-white font-bold">0</span> of 10 questions answered
+            </div>
+            <div class="flex items-center space-x-3 w-full sm:w-auto justify-end">
+              <button type="button" onclick="resetQuiz()" 
+                class="px-5 py-2.5 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm transition-all flex items-center gap-2">
+                <i class="fa-solid fa-rotate-left text-xs"></i> Reset
+              </button>
+              <button type="button" id="submit-quiz-btn" onclick="checkQuizAnswers()" 
+                class="flex-1 sm:flex-initial px-8 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-lg shadow-emerald-900/40 transition-all flex items-center justify-center gap-2">
+                <i class="fa-solid fa-check text-xs"></i> Check Answers
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- PAGE 2: Vocabulary Section -->
+    <div id="page-vocab" class="hidden space-y-6">
+      <div class="bg-[#1e293b]/80 border border-slate-800 rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-sm text-slate-300">
+        <div class="flex items-start sm:items-center space-x-2">
+          <i class="fa-solid fa-circle-info text-emerald-400 mt-1 sm:mt-0"></i>
+          <span>Task: Can you remember the English equivalents of the following? Rewatch the video and check.</span>
+        </div>
+        <div class="shrink-0 self-start sm:self-center text-xs font-semibold text-slate-400 bg-slate-900 px-3 py-1 rounded-full border border-slate-700">
+          10 Items (10 Points)
+        </div>
+      </div>
+
+      <form id="vocab-form" onsubmit="event.preventDefault();" class="space-y-4">
+        <div id="vocab-container" class="space-y-4">
+          <!-- Vocab items dynamically injected via JS -->
+        </div>
+
+        <!-- Submit & Control Bar -->
+        <div class="sticky bottom-4 z-10 pt-4">
+          <div class="bg-[#1e293b]/95 backdrop-blur border border-slate-700/80 p-4 rounded-xl shadow-2xl flex items-center justify-between gap-4">
+            <div class="text-xs text-slate-400 font-medium hidden sm:block">
+              <span id="vocab-filled-count" class="text-white font-bold">0</span> of 10 items filled
+            </div>
+            <div class="flex items-center space-x-3 w-full sm:w-auto justify-end">
+              <button type="button" onclick="resetVocab()" 
+                class="px-5 py-2.5 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm transition-all flex items-center gap-2">
+                <i class="fa-solid fa-rotate-left text-xs"></i> Reset
+              </button>
+              <button type="button" id="submit-vocab-btn" onclick="checkVocabAnswers()" 
+                class="flex-1 sm:flex-initial px-8 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-lg shadow-emerald-900/40 transition-all flex items-center justify-center gap-2">
+                <i class="fa-solid fa-check text-xs"></i> Check Answers
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- PAGE 3: Vocabulary Practice Section -->
+    <div id="page-practice" class="hidden space-y-6">
+      <div class="bg-[#1e293b] border border-slate-800 rounded-2xl p-5 md:p-6 shadow-md space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div class="flex items-center space-x-2 text-sm text-slate-300">
+            <i class="fa-solid fa-circle-info text-emerald-400"></i>
+            <span>Task: Complete the sentences below using these words in the right form:</span>
+          </div>
+          <span class="text-xs font-semibold text-slate-400 bg-slate-900 px-3 py-1 rounded-full border border-slate-700">
+            11 Sentences (11 Points)
+          </span>
+        </div>
+
+        <!-- Word Bank -->
+        <div class="flex flex-wrap gap-2 pt-1">
+          <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-700 text-emerald-300 text-xs md:text-sm font-medium">to fall</span>
+          <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-700 text-emerald-300 text-xs md:text-sm font-medium">to con</span>
+          <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-700 text-emerald-300 text-xs md:text-sm font-medium">skulduggery</span>
+          <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-700 text-emerald-300 text-xs md:text-sm font-medium">win-at-all-costs</span>
+          <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-700 text-emerald-300 text-xs md:text-sm font-medium">to bring</span>
+          <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-700 text-emerald-300 text-xs md:text-sm font-medium">cheat</span>
+          <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-700 text-emerald-300 text-xs md:text-sm font-medium">integrity</span>
+          <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-700 text-emerald-300 text-xs md:text-sm font-medium">a rat</span>
+          <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-700 text-emerald-300 text-xs md:text-sm font-medium">seize</span>
+          <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-700 text-emerald-300 text-xs md:text-sm font-medium">disgrace</span>
+          <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-700 text-emerald-300 text-xs md:text-sm font-medium">to boot</span>
+        </div>
+      </div>
+
+      <form id="practice-form" onsubmit="event.preventDefault();" class="space-y-4">
+        <div id="practice-container" class="space-y-4">
+          <!-- Practice sentences dynamically injected via JS -->
+        </div>
+
+        <!-- Submit & Control Bar -->
+        <div class="sticky bottom-4 z-10 pt-4">
+          <div class="bg-[#1e293b]/95 backdrop-blur border border-slate-700/80 p-4 rounded-xl shadow-2xl flex items-center justify-between gap-4">
+            <div class="text-xs text-slate-400 font-medium hidden sm:block">
+              <span id="practice-filled-count" class="text-white font-bold">0</span> of 11 sentences completed
+            </div>
+            <div class="flex items-center space-x-3 w-full sm:w-auto justify-end">
+              <button type="button" onclick="resetPractice()" 
+                class="px-5 py-2.5 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm transition-all flex items-center gap-2">
+                <i class="fa-solid fa-rotate-left text-xs"></i> Reset
+              </button>
+              <button type="button" id="submit-practice-btn" onclick="checkPracticeAnswers()" 
+                class="flex-1 sm:flex-initial px-8 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-lg shadow-emerald-900/40 transition-all flex items-center justify-center gap-2">
+                <i class="fa-solid fa-check text-xs"></i> Check Answers
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+  <!-- Score Modal Pop-up -->
+  <div id="score-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-[#1e293b] border border-slate-700 w-full max-w-md rounded-2xl p-6 md:p-8 shadow-2xl relative text-center animate-pop">
+      
+      <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors">
+        <i class="fa-solid fa-xmark text-xl"></i>
+      </button>
+
+      <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-emerald-500/25 to-teal-400/10 border border-emerald-500/40 shadow-lg shadow-emerald-500/20 flex items-center justify-center mb-4">
+        <span id="modal-emoji" class="text-4xl">🏆</span>
+      </div>
+
+      <h2 id="modal-title" class="text-2xl font-bold text-white mb-1">Section Completed!</h2>
+      <p id="modal-comment" class="text-lg font-bold text-emerald-400 mb-4">
+        <!-- Scale comment injected here -->
+      </p>
+
+      <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-4 mb-6">
+        <div class="text-xs uppercase tracking-wider text-slate-400 font-bold mb-1">Your Score</div>
+        <div class="text-4xl font-extrabold text-white">
+          <span id="modal-score-num">0</span> <span id="modal-max-num" class="text-slate-500 text-2xl font-medium">/ 10</span>
+        </div>
+      </div>
+
+      <div class="flex gap-3">
+        <button onclick="closeModal()" class="flex-1 px-4 py-2.5 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 text-sm font-semibold transition-all">
+          Review Answers
+        </button>
+        <button id="modal-reset-btn" onclick="resetCurrentSection(); closeModal();" class="flex-1 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-semibold transition-all shadow-md shadow-emerald-900/30">
+          Reset Section
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-900 bg-[#0f172a] py-6 text-center text-xs text-slate-500">
+    <p>Based on Olympic Games report: "The most devious cheat in Olympic Games history?"</p>
+  </footer>
+
+  <script>
+    // ==========================================
+    // 1. LISTENING COMPREHENSION DATA & SCALE
+    // ==========================================
+    const questionsData = [
+      {
+        id: 1,
+        question: "1. Why did Boris Onischenko earn a place in the Olympics Hall of Shame?",
+        options: [
+          { key: "A", text: "He refused to compete against certain athletes." },
+          { key: "B", text: "He used an electronic device to cheat during a fencing competition." },
+          { key: "C", text: "He deliberately injured one of his opponents." },
+          { key: "D", text: "He tried to bribe Olympic officials." }
+        ],
+        correct: "B"
+      },
+      {
+        id: 2,
+        question: "2. Which of the following is NOT one of the disciplines in the modern pentathlon?",
+        options: [
+          { key: "A", text: "Horse riding." },
+          { key: "B", text: "Cross-country running." },
+          { key: "C", text: "Swimming." },
+          { key: "D", text: "Archery." }
+        ],
+        correct: "D"
+      },
+      {
+        id: 3,
+        question: "3. What achievement had Onischenko already made before the 1976 Olympics?",
+        options: [
+          { key: "A", text: "He had won two individual gold medals." },
+          { key: "B", text: "He had won team gold and two individual silver medals." },
+          { key: "C", text: "He had become the youngest Olympic pentathlon champion." },
+          { key: "D", text: "He had won three consecutive individual silver medals." }
+        ],
+        correct: "B"
+      },
+      {
+        id: 4,
+        question: "4. What modification had been made to Onischenko's fencing weapon?",
+        options: [
+          { key: "A", text: "Its blade had been made unusually sharp." },
+          { key: "B", text: "Its handle contained a hidden button connected to a wiring system." },
+          { key: "C", text: "Its sensors had been replaced with more sensitive ones." },
+          { key: "D", text: "Its blade could bend to avoid touching opponents." }
+        ],
+        correct: "B"
+      },
+      {
+        id: 5,
+        question: "5. What first made the British team suspicious of Onischenko?",
+        options: [
+          { key: "A", text: "He repeatedly refused to let officials inspect his weapon." },
+          { key: "B", text: "He scored hits even when his epee hadn't touched his opponent." },
+          { key: "C", text: "He openly admitted to having modified his equipment." },
+          { key: "D", text: "He won every fencing match without making physical contact." }
+        ],
+        correct: "B"
+      },
+      {
+        id: 6,
+        question: "6. Why did Jim Fox's match strengthen the suspicion that Onischenko was cheating?",
+        options: [
+          { key: "A", text: "Fox managed to take Onischenko's weapon away from him." },
+          { key: "B", text: "Onischenko deliberately struck Fox after the referee had stopped the match." },
+          { key: "C", text: "The scoreboard recorded a hit even though Fox had jumped out of the way." },
+          { key: "D", text: "Fox noticed that Onischenko was using a different weapon." }
+        ],
+        correct: "C"
+      },
+      {
+        id: 7,
+        question: "7. How did the hidden device work?",
+        options: [
+          { key: "A", text: "It sent a signal to the arena's sensors when a button was pressed." },
+          { key: "B", text: "It made the blade vibrate whenever it touched an opponent." },
+          { key: "C", text: "It automatically registered a hit after a certain amount of time." },
+          { key: "D", text: "It disabled the opponent's electronic scoring equipment." }
+        ],
+        correct: "A"
+      },
+      {
+        id: 8,
+        question: "8. What happened to Onischenko after the device was discovered?",
+        options: [
+          { key: "A", text: "He was allowed to continue competing after apologising." },
+          { key: "B", text: "He was disqualified from the Games despite appealing." },
+          { key: "C", text: "He was suspended but allowed to keep his medals." },
+          { key: "D", text: "He was banned from fencing but remained with the Olympic team." }
+        ],
+        correct: "B"
+      },
+      {
+        id: 9,
+        question: "9. How did the Soviet volleyball team react to the scandal?",
+        options: [
+          { key: "A", text: "They publicly defended Onischenko." },
+          { key: "B", text: "They demanded that the British team be disqualified." },
+          { key: "C", text: "They threatened to push him out of a window because they felt he had disgraced the country." },
+          { key: "D", text: "They refused to return to the Olympic Village." }
+        ],
+        correct: "C"
+      },
+      {
+        id: 10,
+        question: "10. What happened to Onischenko after he returned to Kiev?",
+        options: [
+          { key: "A", text: "He became a fencing coach for the Soviet national team." },
+          { key: "B", text: "He was expelled from the Red Army, reprimanded by Brezhnev and fined." },
+          { key: "C", text: "He was imprisoned for attempting to manipulate the Olympic results." },
+          { key: "D", text: "He was given another opportunity to compete in the next Olympics." }
+        ],
+        correct: "B"
+      }
+    ];
+
+    const quizScale = [
+      "😟 Needs more work!",        // 0
+      "📚 Keep practising!",         // 1
+      "🌱 Every try counts!",        // 2
+      "🐣 A good start!",            // 3
+      "💪 Keep going!",              // 4
+      "📈 You're improving!",        // 5
+      "🛤️ Getting there!",           // 6
+      "👍 Nice effort!",             // 7
+      "👏 Good job!",                // 8
+      "🌟 Great work!",              // 9
+      "🏆 Absolutely nailed it!"     // 10
+    ];
+
+    // ==========================================
+    // 2. VOCABULARY DATA & SCALE
+    // ==========================================
+    const vocabData = [
+      {
+        id: 1,
+        russian: "Этого человека называют величайшим мошенником в истории Олимпийских игр",
+        displayAnswer: "This man has been called the biggest cheat in the history of the Olympic Games",
+        accepted: [
+          "This man has been called the biggest cheat in the history of the Olympic Games"
+        ]
+      },
+      {
+        id: 2,
+        russian: "изощрённые махинации / хитроумное мошенничество",
+        displayAnswer: "innovative skulduggery",
+        accepted: [
+          "innovative skulduggery"
+        ]
+      },
+      {
+        id: 3,
+        russian: "честность и неподкупность",
+        displayAnswer: "integrity",
+        accepted: [
+          "integrity"
+        ]
+      },
+      {
+        id: 4,
+        russian: "Британцы заподозрили неладное / Британцы почуяли подвох",
+        displayAnswer: "The Brits smelled a rat",
+        accepted: [
+          "The Brits smelled a rat"
+        ]
+      },
+      {
+        id: 5,
+        russian: "Фокса было не так-то просто провести",
+        displayAnswer: "Fox would not be conned",
+        accepted: [
+          "Fox would not be conned"
+        ]
+      },
+      {
+        id: 6,
+        russian: "конфисковали / изъяли шпагу Онищенко (Onischenko)",
+        displayAnswer: "seized Onischenko's epee",
+        accepted: [
+          "seized Onischenko's epee",
+          "seized Onischenko's épée"
+        ]
+      },
+      {
+        id: 7,
+        russian: "Все апелляции остались без ответа",
+        displayAnswer: "Appeals fell on deaf ears",
+        accepted: [
+          "Appeals fell on deaf ears"
+        ]
+      },
+      {
+        id: 8,
+        russian: "Опозоренный / С позором Онищенко был исключён из соревнований (Onischenko)",
+        displayAnswer: "In disgrace, Onischenko was booted from the Games",
+        accepted: [
+          "In disgrace, Onischenko was booted from the Games"
+        ]
+      },
+      {
+        id: 9,
+        russian: "опозорил всю страну",
+        displayAnswer: "(had) brought shame on the entire nation",
+        accepted: [
+          "had brought shame on the entire nation",
+          "brought shame on the entire nation"
+        ]
+      },
+      {
+        id: 10,
+        russian: "советский режим, для которого победа была важнее всего",
+        displayAnswer: "the win-at-all-costs Soviet regime",
+        accepted: [
+          "the win-at-all-costs Soviet regime"
+        ]
+      }
+    ];
+
+    const vocabScale = [
+      "😕 More practice needed!",     // 0
+      "📖 Keep learning!",           // 1
+      "🌱 You're making a start!",   // 2
+      "💪 Keep trying!",             // 3
+      "🔧 You're getting there!",    // 4
+      "📈 Making progress!",         // 5
+      "👍 Nice effort!",             // 6
+      "👏 Good job!",                // 7
+      "🌟 Very well done!",          // 8
+      "🎯 Excellent work!",          // 9
+      "🏆 Outstanding!"              // 10
+    ];
+
+    // ==========================================
+    // 3. VOCABULARY PRACTICE DATA & SCALE
+    // ==========================================
+    const practiceData = [
+      {
+        id: 1,
+        before: "A good journalist must have the",
+        after: "to report the truth, even under pressure.",
+        answer: "integrity"
+      },
+      {
+        id: 2,
+        before: "Several passengers",
+        after: "from the flight for refusing to follow the crew's instructions.",
+        answer: "were booted"
+      },
+      {
+        id: 3,
+        before: "Some people consider him the biggest",
+        after: "in the history of professional football.",
+        answer: "cheat"
+      },
+      {
+        id: 4,
+        before: "He left the organisation in",
+        after: "after being caught falsifying the results.",
+        answer: "disgrace"
+      },
+      {
+        id: 5,
+        before: "He",
+        after: "dozens of people into investing in his fake business.",
+        answer: "conned"
+      },
+      {
+        id: 6,
+        before: "The company used some innovative",
+        after: "to avoid paying millions in taxes.",
+        answer: "skulduggery"
+      },
+      {
+        id: 7,
+        before: "I started to smell",
+        after: "when he refused to show me the original documents.",
+        answer: "a rat"
+      },
+      {
+        id: 8,
+        before: "The police",
+        after: "his laptop and phone as part of the investigation.",
+        answer: "seized"
+      },
+      {
+        id: 9,
+        before: "Our complaints about the poor working conditions",
+        after: "on deaf ears.",
+        answer: "fell"
+      },
+      {
+        id: 10,
+        before: "The",
+        after: "mentality created a culture where cheating was quietly tolerated.",
+        answer: "win-at-all-costs"
+      },
+      {
+        id: 11,
+        before: "His disgraceful behaviour",
+        after: "shame on the entire organisation.",
+        answer: "brought"
+      }
+    ];
+
+    const practiceScale = [
+      "😬 Needs improvement!",       // 0
+      "📚 Back to practising!",      // 1
+      "🌱 A little progress!",       // 2
+      "🐾 Keep moving forward!",     // 3
+      "🔨 Building your skills!",    // 4
+      "🌈 A promising effort!",      // 5
+      "🧠 You're getting the hang of it!", // 6
+      "👍 Good effort!",             // 7
+      "👏 Very nice work!",          // 8
+      "⭐ Excellent job!",           // 9
+      "🎯 Almost perfect!",          // 10
+      "🏆 Absolutely brilliant!"     // 11
+    ];
+
+    // State Tracking
+    let activeTab = 'quiz';
+    let quizSubmitted = false;
+    let vocabSubmitted = false;
+    let practiceSubmitted = false;
+
+    // Normalize user strings (case-insensitive, ignores commas/dashes/hyphens, normalizes apostrophes and whitespace)
+    function normalizeText(str) {
+      return str
+        .toLowerCase()
+        .replace(/[’‘`]/g, "'")
+        .replace(/[,—–-]/g, " ")
+        .replace(/[.!?]/g, "")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+
+    // Tab Switcher
+    function switchTab(tab) {
+      activeTab = tab;
+      const pages = {
+        quiz: document.getElementById('page-quiz'),
+        vocab: document.getElementById('page-vocab'),
+        practice: document.getElementById('page-practice')
+      };
+      const buttons = {
+        quiz: document.getElementById('tab-btn-quiz'),
+        vocab: document.getElementById('tab-btn-vocab'),
+        practice: document.getElementById('tab-btn-practice')
+      };
+
+      const activeClasses = "px-4 md:px-5 py-3 text-sm md:text-base font-bold text-white border-b-2 border-emerald-500 bg-emerald-500/10 rounded-t-xl transition-all";
+      const inactiveClasses = "px-4 md:px-5 py-3 text-sm md:text-base font-bold text-slate-400 hover:text-slate-200 border-b-2 border-transparent hover:bg-slate-800/50 rounded-t-xl transition-all";
+
+      Object.keys(pages).forEach(key => {
+        if (key === tab) {
+          pages[key].classList.remove('hidden');
+          buttons[key].className = activeClasses;
+        } else {
+          pages[key].classList.add('hidden');
+          buttons[key].className = inactiveClasses;
+        }
+      });
+    }
+
+    // ==========================================
+    // SECTION 1: LISTENING COMPREHENSION LOGIC
+    // ==========================================
+    function renderQuiz() {
+      const container = document.getElementById('questions-container');
+      container.innerHTML = '';
+
+      questionsData.forEach((q) => {
+        const card = document.createElement('div');
+        card.className = "bg-[#1e293b] border border-slate-800 rounded-2xl p-5 md:p-6 shadow-md transition-all duration-300 relative";
+        card.id = `q-card-${q.id}`;
+
+        let optionsHTML = '';
+        q.options.forEach(opt => {
+          const inputName = `question-${q.id}`;
+          const inputId = `q${q.id}-${opt.key}`;
+
+          optionsHTML += `
+            <label id="label-${q.id}-${opt.key}" for="${inputId}" 
+              class="option-label flex items-start p-3.5 rounded-xl border border-slate-800 bg-[#0f172a]/70 hover:bg-slate-800/80 hover:border-slate-700 cursor-pointer transition-all text-slate-300 hover:text-white">
+              <div class="flex items-center h-6 mr-3">
+                <input type="radio" name="${inputName}" value="${opt.key}" id="${inputId}" 
+                  onchange="updateQuizProgress()" 
+                  class="rounded focus:ring-0 focus:ring-offset-0 focus:outline-none">
+              </div>
+              <div class="text-sm md:text-base leading-relaxed flex-1">
+                <span class="font-bold text-slate-400 mr-1">${opt.key})</span> ${opt.text}
+              </div>
+              <div class="feedback-icon hidden ml-2 text-lg"></div>
+            </label>
+          `;
+        });
+
+        card.innerHTML = `
+          <div class="flex justify-between items-start gap-4 mb-4">
+            <h3 class="text-base md:text-lg font-semibold text-slate-100 leading-snug">
+              ${q.question}
+            </h3>
+            <div class="shrink-0 flex items-center space-x-2">
+              <span id="status-icon-${q.id}" class="hidden"></span>
+            </div>
+          </div>
+          <div class="space-y-3">
+            ${optionsHTML}
+          </div>
+        `;
+
+        container.appendChild(card);
+      });
+
+      updateQuizProgress();
+    }
+
+    function updateQuizProgress() {
+      let answeredCount = 0;
+      questionsData.forEach(q => {
+        const checked = document.querySelectorAll(`input[name="question-${q.id}"]:checked`);
+        if (checked.length > 0) answeredCount++;
+      });
+      const countEl = document.getElementById('answered-count');
+      if (countEl) countEl.textContent = answeredCount;
+    }
+
+    function checkQuizAnswers() {
+      if (quizSubmitted) return;
+      quizSubmitted = true;
+
+      let score = 0;
+
+      questionsData.forEach(q => {
+        const card = document.getElementById(`q-card-${q.id}`);
+        const statusIcon = document.getElementById(`status-icon-${q.id}`);
+        const inputs = document.querySelectorAll(`input[name="question-${q.id}"]`);
+        
+        let selectedVal = null;
+        inputs.forEach(input => {
+          if (input.checked) selectedVal = input.value;
+          input.disabled = true;
+        });
+
+        const isCorrect = selectedVal === q.correct;
+        if (isCorrect) score += 1;
+
+        if (isCorrect) {
+          card.classList.remove('border-slate-800');
+          card.classList.add('border-emerald-500/70', 'bg-emerald-950/15');
+          statusIcon.className = "text-emerald-400 text-lg flex items-center";
+          statusIcon.innerHTML = `<i class="fa-solid fa-circle-check"></i>`;
+        } else {
+          card.classList.remove('border-slate-800');
+          card.classList.add('border-red-500/70', 'bg-red-950/15');
+          statusIcon.className = "text-red-400 text-lg flex items-center";
+          statusIcon.innerHTML = `<i class="fa-solid fa-circle-xmark"></i>`;
+        }
+
+        q.options.forEach(opt => {
+          const label = document.getElementById(`label-${q.id}-${opt.key}`);
+          const isSelected = selectedVal === opt.key;
+          const isTargetCorrect = q.correct === opt.key;
+          const iconContainer = label.querySelector('.feedback-icon');
+
+          label.classList.remove('hover:bg-slate-800/80', 'hover:border-slate-700', 'cursor-pointer');
+          label.classList.add('cursor-default');
+
+          if (isTargetCorrect) {
+            label.classList.add('correct-choice');
+            iconContainer.classList.remove('hidden');
+            iconContainer.innerHTML = `<i class="fa-solid fa-check text-emerald-400"></i>`;
+          } else if (isSelected && !isTargetCorrect) {
+            label.classList.add('wrong-choice');
+            iconContainer.classList.remove('hidden');
+            iconContainer.innerHTML = `<i class="fa-solid fa-xmark text-red-400"></i>`;
+          } else {
+            label.classList.add('opacity-45');
+          }
+        });
+      });
+
+      const submitBtn = document.getElementById('submit-quiz-btn');
+      submitBtn.disabled = true;
+      submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+
+      showModal("Listening Comprehension", score, 10, quizScale);
+    }
+
+    function resetQuiz() {
+      quizSubmitted = false;
+      const submitBtn = document.getElementById('submit-quiz-btn');
+      submitBtn.disabled = false;
+      submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+      renderQuiz();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ==========================================
+    // SECTION 2: VOCABULARY LOGIC
+    // ==========================================
+    function renderVocab() {
+      const container = document.getElementById('vocab-container');
+      container.innerHTML = '';
+
+      vocabData.forEach(item => {
+        const card = document.createElement('div');
+        card.id = `v-card-${item.id}`;
+        card.className = "bg-[#1e293b] border border-slate-800 rounded-2xl p-5 shadow-md transition-all duration-300";
+
+        card.innerHTML = `
+          <div class="flex justify-between items-start gap-3 mb-3">
+            <div class="text-sm md:text-base font-semibold text-slate-200">
+              <span class="text-emerald-400 font-bold mr-1.5">${item.id}.</span> ${item.russian}
+            </div>
+            <span id="v-status-${item.id}" class="hidden shrink-0 text-lg"></span>
+          </div>
+          <input type="text" id="v-input-${item.id}" oninput="updateVocabProgress()"
+            placeholder="Type the English equivalent..."
+            autocomplete="off" spellcheck="false"
+            class="w-full bg-[#0f172a] border border-slate-700 focus:border-emerald-500 rounded-xl px-4 py-2.5 text-slate-100 placeholder-slate-500 text-sm md:text-base focus:outline-none transition-colors">
+          <div id="v-feedback-${item.id}" class="hidden mt-2.5 text-xs md:text-sm font-medium px-3 py-2 rounded-lg bg-slate-900/90 border border-slate-700/80 text-slate-300">
+          </div>
+        `;
+        container.appendChild(card);
+      });
+
+      updateVocabProgress();
+    }
+
+    function updateVocabProgress() {
+      let filled = 0;
+      vocabData.forEach(item => {
+        const val = document.getElementById(`v-input-${item.id}`).value.trim();
+        if (val.length > 0) filled++;
+      });
+      const countEl = document.getElementById('vocab-filled-count');
+      if (countEl) countEl.textContent = filled;
+    }
+
+    function checkVocabAnswers() {
+      if (vocabSubmitted) return;
+      vocabSubmitted = true;
+
+      let score = 0;
+
+      vocabData.forEach(item => {
+        const card = document.getElementById(`v-card-${item.id}`);
+        const input = document.getElementById(`v-input-${item.id}`);
+        const statusIcon = document.getElementById(`v-status-${item.id}`);
+        const feedbackBox = document.getElementById(`v-feedback-${item.id}`);
+
+        const userNorm = normalizeText(input.value);
+        const isCorrect = item.accepted.some(ans => normalizeText(ans) === userNorm);
+
+        input.disabled = true;
+
+        if (isCorrect) {
+          score += 1;
+          card.classList.remove('border-slate-800');
+          card.classList.add('border-emerald-500/70', 'bg-emerald-950/15');
+          input.classList.add('correct-choice');
+          statusIcon.className = "text-emerald-400 text-lg flex items-center";
+          statusIcon.innerHTML = `<i class="fa-solid fa-circle-check"></i>`;
+        } else {
+          card.classList.remove('border-slate-800');
+          card.classList.add('border-red-500/70', 'bg-red-950/15');
+          input.classList.add('wrong-choice');
+          statusIcon.className = "text-red-400 text-lg flex items-center";
+          statusIcon.innerHTML = `<i class="fa-solid fa-circle-xmark"></i>`;
+
+          feedbackBox.classList.remove('hidden');
+          feedbackBox.innerHTML = `<span class="text-slate-400">Correct answer:</span> <span class="text-emerald-400 font-semibold">${item.displayAnswer}</span>`;
+        }
+      });
+
+      const submitBtn = document.getElementById('submit-vocab-btn');
+      submitBtn.disabled = true;
+      submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+
+      showModal("Vocabulary", score, 10, vocabScale);
+    }
+
+    function resetVocab() {
+      vocabSubmitted = false;
+      const submitBtn = document.getElementById('submit-vocab-btn');
+      submitBtn.disabled = false;
+      submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+      renderVocab();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ==========================================
+    // SECTION 3: VOCABULARY PRACTICE LOGIC
+    // ==========================================
+    function renderPractice() {
+      const container = document.getElementById('practice-container');
+      container.innerHTML = '';
+
+      practiceData.forEach(item => {
+        const card = document.createElement('div');
+        card.id = `p-card-${item.id}`;
+        card.className = "bg-[#1e293b] border border-slate-800 rounded-2xl p-5 shadow-md transition-all duration-300";
+
+        card.innerHTML = `
+          <div class="flex justify-between items-start gap-3">
+            <div class="text-sm md:text-base text-slate-200 leading-loose flex-1">
+              <span class="text-emerald-400 font-bold mr-1.5">${item.id}.</span>
+              <span>${item.before}</span>
+              <input type="text" id="p-input-${item.id}" oninput="updatePracticeProgress()"
+                placeholder="..."
+                autocomplete="off" spellcheck="false"
+                class="inline-block w-40 sm:w-48 mx-1.5 px-3 py-1 bg-[#0f172a] border-b-2 border-slate-600 focus:border-emerald-500 rounded-lg text-center font-semibold text-white placeholder-slate-600 text-sm md:text-base focus:outline-none transition-colors">
+              <span>${item.after}</span>
+            </div>
+            <span id="p-status-${item.id}" class="hidden shrink-0 text-lg mt-1"></span>
+          </div>
+          <div id="p-feedback-${item.id}" class="hidden mt-3 text-xs md:text-sm font-medium px-3 py-2 rounded-lg bg-slate-900/90 border border-slate-700/80 text-slate-300">
+          </div>
+        `;
+        container.appendChild(card);
+      });
+
+      updatePracticeProgress();
+    }
+
+    function updatePracticeProgress() {
+      let filled = 0;
+      practiceData.forEach(item => {
+        const val = document.getElementById(`p-input-${item.id}`).value.trim();
+        if (val.length > 0) filled++;
+      });
+      const countEl = document.getElementById('practice-filled-count');
+      if (countEl) countEl.textContent = filled;
+    }
+
+    function checkPracticeAnswers() {
+      if (practiceSubmitted) return;
+      practiceSubmitted = true;
+
+      let score = 0;
+
+      practiceData.forEach(item => {
+        const card = document.getElementById(`p-card-${item.id}`);
+        const input = document.getElementById(`p-input-${item.id}`);
+        const statusIcon = document.getElementById(`p-status-${item.id}`);
+        const feedbackBox = document.getElementById(`p-feedback-${item.id}`);
+
+        const userNorm = normalizeText(input.value);
+        const targetNorm = normalizeText(item.answer);
+        const isCorrect = userNorm === targetNorm;
+
+        input.disabled = true;
+
+        if (isCorrect) {
+          score += 1;
+          card.classList.remove('border-slate-800');
+          card.classList.add('border-emerald-500/70', 'bg-emerald-950/15');
+          input.classList.add('correct-choice');
+          statusIcon.className = "text-emerald-400 text-lg flex items-center mt-1";
+          statusIcon.innerHTML = `<i class="fa-solid fa-circle-check"></i>`;
+        } else {
+          card.classList.remove('border-slate-800');
+          card.classList.add('border-red-500/70', 'bg-red-950/15');
+          input.classList.add('wrong-choice');
+          statusIcon.className = "text-red-400 text-lg flex items-center mt-1";
+          statusIcon.innerHTML = `<i class="fa-solid fa-circle-xmark"></i>`;
+
+          feedbackBox.classList.remove('hidden');
+          feedbackBox.innerHTML = `<span class="text-slate-400">Correct form:</span> <span class="text-emerald-400 font-semibold">${item.answer}</span>`;
+        }
+      });
+
+      const submitBtn = document.getElementById('submit-practice-btn');
+      submitBtn.disabled = true;
+      submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+
+      showModal("Vocabulary Practice", score, 11, practiceScale);
+    }
+
+    function resetPractice() {
+      practiceSubmitted = false;
+      const submitBtn = document.getElementById('submit-practice-btn');
+      submitBtn.disabled = false;
+      submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+      renderPractice();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ==========================================
+    // SHARED MODAL & INITIALIZATION
+    // ==========================================
+    function showModal(sectionTitle, score, maxScore, scaleArray) {
+      const modal = document.getElementById('score-modal');
+      const titleEl = document.getElementById('modal-title');
+      const commentEl = document.getElementById('modal-comment');
+      const scoreNumEl = document.getElementById('modal-score-num');
+      const maxNumEl = document.getElementById('modal-max-num');
+      const emojiEl = document.getElementById('modal-emoji');
+
+      const clampedScore = Math.min(Math.max(score, 0), maxScore);
+      const fullComment = scaleArray[clampedScore];
+      const spaceIndex = fullComment.indexOf(' ');
+      const emoji = fullComment.slice(0, spaceIndex);
+      const commentText = fullComment.slice(spaceIndex + 1);
+
+      titleEl.innerText = `${sectionTitle} Completed!`;
+      emojiEl.innerText = emoji;
+      commentEl.innerText = commentText;
+      scoreNumEl.innerText = clampedScore;
+      maxNumEl.innerText = `/ ${maxScore}`;
+
+      modal.classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('score-modal').classList.add('hidden');
+    }
+
+    function resetCurrentSection() {
+      if (activeTab === 'quiz') resetQuiz();
+      else if (activeTab === 'vocab') resetVocab();
+      else if (activeTab === 'practice') resetPractice();
+    }
+
+    window.onload = function() {
+      renderQuiz();
+      renderVocab();
+      renderPractice();
+    };
+  </script>
+</body>
+</html>
